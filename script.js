@@ -36,26 +36,7 @@ themeToggle?.addEventListener("click", () => {
 
 yearEl.textContent = new Date().getFullYear();
 
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const id = entry.target.getAttribute("id");
-      const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-      if (!link) {
-        return;
-      }
-      if (entry.isIntersecting) {
-        navLinks.forEach((nav) => nav.classList.remove("active"));
-        link.classList.add("active");
-      }
-    });
-  },
-  { rootMargin: "-50% 0px -50% 0px" }
-);
-
-document.querySelectorAll("section[id]").forEach((section) => {
-  navObserver.observe(section);
-});
+navLinks.forEach((nav) => nav.classList.remove("active"));
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
