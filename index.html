@@ -35,13 +35,22 @@
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
           <a href="#publications">Publications</a>
-          <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
           <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="btn ghost" id="theme-toggle" type="button" aria-label="Toggle theme">
-          Theme
+        <button class="btn ghost theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="theme-toggle__icon" aria-hidden="true"></span>
+          <span class="theme-toggle__status" aria-hidden="true">
+            <svg class="theme-toggle__sun" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="theme-toggle__moon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5Z"></path>
+            </svg>
+          </span>
         </button>
       </div>
     </header>
@@ -231,6 +240,52 @@
         </div>
       </section>
 
+      <section class="section alt" id="education">
+        <div class="container">
+          <div class="section-title">
+            <h2>Education</h2>
+            <p>Academic background and research focus.</p>
+          </div>
+          <div class="grid certifications-grid">
+            <article class="card">
+              <h3>Marquette University</h3>
+              <p class="muted">Master’s in Data Science · 2026 - 2027</p>
+              <p>Research Assistant (mHealth)</p>
+            </article>
+            <article class="card">
+              <h3>Khulna University of Engineering & Technology</h3>
+              <p class="muted">B.Sc. in ECE · 2014 - 2018</p>
+              <p>Electronics & Communication Engineering</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="publications">
+        <div class="container">
+          <div class="section-title">
+            <h2>Publications</h2>
+            <p>Selected research publications.</p>
+          </div>
+          <div class="grid">
+            <article class="card">
+              <h4>Employing PCA and t-statistical approach for feature extraction and classification of emotion from multichannel EEG signal</h4>
+              <p class="muted">Egyptian Informatics Journal · Nov 2, 2019</p>
+              <ul>
+                <li>Hybrid PCA + t-statistics features for EEG emotion recognition on SEED.</li>
+                <li>Evaluated with SVM, ANN, LDA, k-NN across subject-dependent and independent setups.</li>
+                <li>Best accuracy: 86.57% (ANN, subject-dependent).</li>
+              </ul>
+              <div class="hero-links">
+                <a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank" rel="noreferrer">
+                  View paper
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="skills">
         <div class="container">
           <div class="section-title">
@@ -279,52 +334,6 @@
             <span>GitHub Actions</span>
             <span>Prometheus</span>
             <span>Grafana</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="education">
-        <div class="container">
-          <div class="section-title">
-            <h2>Education</h2>
-            <p>Academic background and research focus.</p>
-          </div>
-          <div class="grid certifications-grid">
-            <article class="card">
-              <h3>Marquette University</h3>
-              <p class="muted">Master’s in Data Science · 2026 - 2027</p>
-              <p>Research Assistant (mHealth)</p>
-            </article>
-            <article class="card">
-              <h3>Khulna University of Engineering & Technology</h3>
-              <p class="muted">B.Sc. in ECE · 2014 - 2018</p>
-              <p>Electronics & Communication Engineering</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="publications">
-        <div class="container">
-          <div class="section-title">
-            <h2>Publications</h2>
-            <p>Selected research publications.</p>
-          </div>
-          <div class="grid">
-            <article class="card">
-              <h4>Employing PCA and t-statistical approach for feature extraction and classification of emotion from multichannel EEG signal</h4>
-              <p class="muted">Egyptian Informatics Journal · Nov 2, 2019</p>
-              <ul>
-                <li>Hybrid PCA + t-statistics features for EEG emotion recognition on SEED.</li>
-                <li>Evaluated with SVM, ANN, LDA, k-NN across subject-dependent and independent setups.</li>
-                <li>Best accuracy: 86.57% (ANN, subject-dependent).</li>
-              </ul>
-              <div class="hero-links">
-                <a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank" rel="noreferrer">
-                  View paper
-                </a>
-              </div>
-            </article>
           </div>
         </div>
       </section>
@@ -472,33 +481,6 @@
                   View certificate
                 </a>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt" id="services">
-        <div class="container">
-          <div class="section-title">
-            <h2>Services</h2>
-            <p>How I help teams deliver dependable data products.</p>
-          </div>
-          <div class="grid services">
-            <article class="card">
-              <h3>Data Pipeline Engineering</h3>
-              <p>Design, build, and scale ETL/ELT workflows with strong reliability.</p>
-            </article>
-            <article class="card">
-              <h3>Data Quality & Observability</h3>
-              <p>Automated checks, alerting, and lineage visibility to keep data trusted.</p>
-            </article>
-            <article class="card">
-              <h3>ML-Ready Data Products</h3>
-              <p>Feature engineering, dataset prep, and governance for ML workloads.</p>
-            </article>
-            <article class="card">
-              <h3>Analytics APIs</h3>
-              <p>RESTful services that expose timely, curated data to business users.</p>
             </article>
           </div>
         </div>

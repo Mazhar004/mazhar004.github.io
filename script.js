@@ -6,9 +6,19 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 const toTopButton = document.getElementById("to-top");
 
+const updateThemeToggle = () => {
+  if (!themeToggle) {
+    return;
+  }
+  const isDark = body.dataset.theme === "dark";
+  const label = isDark ? "Switch to light theme" : "Switch to dark theme";
+  themeToggle.setAttribute("aria-label", label);
+};
+
 const setTheme = (theme) => {
   body.dataset.theme = theme;
   localStorage.setItem("theme", theme);
+  updateThemeToggle();
 };
 
 const storedTheme = localStorage.getItem("theme");
