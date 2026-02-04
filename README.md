@@ -50,5 +50,5 @@
 ### Connect with Me
 <p align="left">
    <a href="https://www.linkedin.com/in/mazhar004"><img target="_blank" alt="linkedin" title="Find me on Linkedin" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-   <a href="mailto:princemazhar.mp@gmail.com"><img target="_blank" alt="followers" title="Find me on Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+   <a href="mailto:4h7wixs1l@mozmail.com"><img target="_blank" alt="followers" title="Find me on Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 </p>
