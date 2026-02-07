@@ -30,7 +30,12 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="#top">MH</a>
-        <nav class="nav-links">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+        <nav class="nav-links" id="nav-menu" role="navigation">
           <a href="#profile">Profile</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
@@ -40,8 +45,8 @@
           <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="btn ghost theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
-          <span class="theme-toggle__icon" aria-hidden="true"></span>
+        <button class="btn ghost theme-toggle theme-toggle--icon-only" id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="theme-toggle__icon theme-toggle__icon--hidden-mobile" aria-hidden="true"></span>
           <span class="theme-toggle__status" aria-hidden="true">
             <svg class="theme-toggle__sun" viewBox="0 0 24 24" role="img" aria-hidden="true">
               <circle cx="12" cy="12" r="4"></circle>
@@ -80,16 +85,16 @@
             </div>
             <div class="hero-metrics">
               <div>
-                <p class="metric">6+ yrs</p>
+                <p class="metric">6+ years</p>
                 <p>Industry experience</p>
               </div>
               <div>
-                <p class="metric">500+</p>
-                <p>Data sources</p>
+                <p class="metric">1k+</p>
+                <p>StackOverflow</p>
               </div>
               <div>
-                <p class="metric">95%</p>
-                <p>Faster debugging</p>
+                <p class="metric">200+</p>
+                <p>Scholar citations</p>
               </div>
             </div>
           </div>
@@ -105,6 +110,8 @@
               <div class="hero-links">
                 <a href="https://github.com/mazhar004">GitHub</a>
                 <a href="https://www.linkedin.com/in/mazhar004/">LinkedIn</a>
+                <a href="https://stackoverflow.com/users/11755018/mazhar">Stack Overflow</a>
+                <a href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ">Google Scholar</a>
               </div>
             </div>
           </div>
@@ -120,22 +127,22 @@
                 Python backend and data engineer with 6+ years of experience across data
                 pipelines, ML systems, and production APIs. Focused on data quality,
                 observability, and scalable ingestion frameworks. Research Assistant at
-                Marquette University (mHealth), and currently building market data products
-                for power and energy forecasting.
+                Marquette University (mHealth), currently developing ML-enabled mHealth 
+                data collection platforms.
               </p>
               <div class="profile-pills">
                 <span>Data Integrity</span>
                 <span>Monitoring</span>
-                <span>Forecasting</span>
+                <span>Prediction</span>
                 <span>Automation</span>
               </div>
             </div>
             <div class="card spotlight">
               <h3>Top Skills</h3>
               <ul>
-                <li>Research Skills</li>
-                <li>Computer Vision</li>
-                <li>Healthcare</li>
+                <li>Python & Backend Systems</li>
+                <li>ETL & Automation</li>
+                <li>Data Quality & Observability</li>
               </ul>
             </div>
           </div>
@@ -148,14 +155,22 @@
               <p class="stat" data-target="500" data-suffix="+">0</p>
               <p>Data sources integrated</p>
             </div>
-            <div class="card reveal">
-              <p class="stat" data-target="95" data-suffix="%">0</p>
-              <p>Debugging time reduced</p>
-            </div>
-            <div class="card reveal">
-              <p class="stat" data-target="60" data-suffix="%">0</p>
-              <p>New source effort reduced</p>
-            </div>
+            <a class="card reveal stat-link" href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer">
+              <p class="stat" data-target="1000" data-suffix="+">0</p>
+              <p>Stack Overflow reputation</p>
+              <span class="stat-badge so-badge">
+                <svg viewBox="0 0 120 120" width="20" height="20" aria-hidden="true"><path fill="#bcbbbb" d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"/><path fill="#f48024" d="M38.8 68.4l37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18l35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2l29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3l-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"/></svg>
+                SO
+              </span>
+            </a>
+            <a class="card reveal stat-link" href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer">
+              <p class="stat" data-target="200" data-suffix="+">0</p>
+              <p>Google Scholar citations</p>
+              <span class="stat-badge scholar-badge">
+                <svg viewBox="0 0 512 512" width="20" height="20" aria-hidden="true"><path fill="#4285f4" d="M256 411.12L0 202.667 256 0z"/><path fill="#356ac3" d="M256 411.12l256-208.453L256 0z"/><circle fill="#a0c3ff" cx="256" cy="362.667" r="149.333"/><path fill="#76a7fa" d="M121.037 298.667c23.968-67.99 88.963-116.667 165.63-116.667s141.662 48.677 165.63 116.667H121.037z"/></svg>
+                Scholar
+              </span>
+            </a>
           </div>
         </div>
       </section>
@@ -499,6 +514,7 @@
             <a class="btn outline" href="https://www.linkedin.com/in/mazhar004/">LinkedIn</a>
             <a class="btn outline" href="https://github.com/mazhar004">GitHub</a>
             <a class="btn outline" href="https://stackoverflow.com/users/11755018/mazhar">Stack Overflow</a>
+            <a class="btn outline" href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ">Google Scholar</a>
           </div>
         </div>
       </section>
