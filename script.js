@@ -62,14 +62,16 @@ const animateStat = (el) => {
   const duration = 1200;
   const start = performance.now();
 
+  const fmt = (n) => n.toLocaleString("en-US");
+
   const tick = (now) => {
     const progress = Math.min((now - start) / duration, 1);
     const value = Math.floor(progress * target);
-    el.textContent = `${value}${suffix}`;
+    el.textContent = `${fmt(value)}${suffix}`;
     if (progress < 1) {
       requestAnimationFrame(tick);
     } else {
-      el.textContent = `${target}${suffix}`;
+      el.textContent = `${fmt(target)}${suffix}`;
     }
   };
 

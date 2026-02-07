@@ -61,7 +61,7 @@ a {
 }
 
 .container {
-  width: min(1120px, 90vw);
+  width: min(1440px, 94vw);
   margin: 0 auto;
 }
 
@@ -464,6 +464,51 @@ h2 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
+}
+
+.stat-link {
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+}
+
+.stat-link:hover {
+  border-color: var(--primary);
+}
+
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stat-badge svg {
+  flex-shrink: 0;
+}
+
+.so-badge {
+  background: rgba(244, 128, 36, 0.12);
+  color: #d2691e;
+}
+
+body[data-theme="dark"] .so-badge {
+  background: rgba(244, 128, 36, 0.18);
+  color: #f48024;
+}
+
+.scholar-badge {
+  background: rgba(66, 133, 244, 0.12);
+  color: #1a56db;
+}
+
+body[data-theme="dark"] .scholar-badge {
+  background: rgba(66, 133, 244, 0.18);
+  color: #76a7fa;
 }
 
 .profile-grid {
