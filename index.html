@@ -30,7 +30,12 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="#top">MH</a>
-        <nav class="nav-links">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+        <nav class="nav-links" id="nav-menu" role="navigation">
           <a href="#profile">Profile</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
@@ -40,8 +45,8 @@
           <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="btn ghost theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
-          <span class="theme-toggle__icon" aria-hidden="true"></span>
+        <button class="btn ghost theme-toggle theme-toggle--icon-only" id="theme-toggle" type="button" aria-label="Toggle theme">
+          <span class="theme-toggle__icon theme-toggle__icon--hidden-mobile" aria-hidden="true"></span>
           <span class="theme-toggle__status" aria-hidden="true">
             <svg class="theme-toggle__sun" viewBox="0 0 24 24" role="img" aria-hidden="true">
               <circle cx="12" cy="12" r="4"></circle>
