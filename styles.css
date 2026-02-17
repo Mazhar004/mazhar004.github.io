@@ -502,6 +502,89 @@ h2 {
   align-items: start;
 }
 
+.education-cards .education-card {
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+.education-card__badges {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.edu-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  cursor: default;
+}
+
+.edu-badge:focus {
+  outline: none;
+}
+
+.edu-badge:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.edu-badge--msc {
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(59, 130, 246, 0.12));
+  color: var(--primary);
+  border-color: rgba(30, 64, 175, 0.35);
+}
+
+.edu-badge--msc:hover,
+.edu-badge--msc:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25);
+  border-color: var(--primary);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.22), rgba(59, 130, 246, 0.18));
+}
+
+.edu-badge--honours {
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.15), rgba(6, 182, 212, 0.12));
+  color: #0e7490;
+  border-color: rgba(14, 116, 144, 0.35);
+}
+
+body[data-theme="dark"] .edu-badge--honours {
+  color: #22d3ee;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(6, 182, 212, 0.12));
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.edu-badge--honours:hover,
+.edu-badge--honours:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(14, 116, 144, 0.3);
+  border-color: #0e7490;
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.25), rgba(6, 182, 212, 0.2));
+}
+
+body[data-theme="dark"] .edu-badge--honours:hover,
+body[data-theme="dark"] .edu-badge--honours:focus-visible {
+  box-shadow: 0 4px 14px rgba(34, 211, 238, 0.25);
+  border-color: #22d3ee;
+}
+
+body[data-theme="dark"] .edu-badge--msc:hover,
+body[data-theme="dark"] .edu-badge--msc:focus-visible {
+  box-shadow: 0 4px 14px rgba(96, 165, 250, 0.3);
+}
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -637,10 +720,46 @@ body[data-theme="dark"] .scholar-badge {
   display: none;
 }
 
+.exp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.exp-company {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.exp-designation {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.exp-meta {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .accordion-body {
   padding: 0 0 1.2rem;
   display: grid;
   gap: 1rem;
+}
+
+.exp-highlight {
+  font-size: 0.95rem;
+  color: var(--text);
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  margin: 0;
+  font-weight: 500;
 }
 
 .accordion-body ul {
@@ -846,11 +965,25 @@ body[data-theme="dark"] .scholar-badge {
   .hero-links {
     gap: 0.75rem;
   }
+
+  .accordion-item summary {
+    flex-wrap: wrap;
+  }
+
+  .exp-meta {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto;
     transition: none !important;
+  }
+
+  .edu-badge:hover,
+  .edu-badge:focus-visible {
+    transform: none;
   }
 }
