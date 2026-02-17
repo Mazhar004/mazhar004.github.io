@@ -487,6 +487,21 @@ main ul li::before {
   color: var(--muted);
 }
 
+.publication-profiles {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.publication-profiles a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.publication-profiles a:hover {
+  text-decoration: underline;
+}
+
 h2 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   margin-bottom: 0.6rem;
