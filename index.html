@@ -64,7 +64,7 @@
       <section class="hero" id="top">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">Research Assistant | ML | Python</p>
+            <p class="eyebrow"><span class="eyebrow-typed"></span><span class="cursor"></span></p>
             <h1>Mazhar Hossain</h1>
             <p class="lead">
               Python backend and data engineer building reliable data platforms, ML-ready
@@ -189,6 +189,9 @@
                   <span class="exp-designation">Research Assistant</span>
                 </div>
                 <span class="muted exp-meta">Jan 2026 - Present · Milwaukee, WI</span>
+                <span class="accordion-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
+                </span>
               </summary>
               <div class="accordion-body">
                 <p class="exp-highlight">mHealth research, applied ML & data processing for health-focused studies.</p>
@@ -208,6 +211,9 @@
                   <span class="exp-designation">Software Engineer → Senior Software Engineer</span>
                 </div>
                 <span class="muted exp-meta">Sep 2021 - Dec 2025 · Dhaka, Bangladesh</span>
+                <span class="accordion-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
+                </span>
               </summary>
               <div class="accordion-body">
                 <p class="exp-highlight">Data platform reliability, 500+ source pipelines & 95% faster debugging via automation.</p>
@@ -232,6 +238,9 @@
                   <span class="exp-designation">Python Developer (Freelance)</span>
                 </div>
                 <span class="muted exp-meta">Feb 2021 - Dec 2022 · Remote</span>
+                <span class="accordion-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
+                </span>
               </summary>
               <div class="accordion-body">
                 <p class="exp-highlight">ETL delivery, system stabilization & 100% job success rate.</p>
@@ -253,6 +262,9 @@
                   <span class="exp-designation">AI Engineer</span>
                 </div>
                 <span class="muted exp-meta">Oct 2019 - Aug 2021 · Dhaka, Bangladesh</span>
+                <span class="accordion-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
+                </span>
               </summary>
               <div class="accordion-body">
                 <p class="exp-highlight">Computer vision (74% detection accuracy), NLP chatbots (+43% accuracy) & recommender systems.</p>
@@ -550,5 +562,42 @@
     <button class="to-top" id="to-top" type="button" aria-label="Back to top">
       ↑
     </button>
+    <script>
+      (function () {
+        const typed = document.querySelector('.eyebrow-typed');
+        if (!typed) return;
+        const titles = ['Python Developer', 'AI Engineer',
+                        'Data Engineer', 'Research Assistant'];
+        let titleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        const typeSpeed = 70;
+        const deleteSpeed = 40;
+        const pauseAfterType = 1800;
+        const pauseAfterDelete = 400;
+
+        function tick() {
+          const current = titles[titleIndex];
+          if (!deleting) {
+            typed.textContent = current.slice(0, ++charIndex);
+            if (charIndex === current.length) {
+              deleting = true;
+              setTimeout(tick, pauseAfterType);
+              return;
+            }
+          } else {
+            typed.textContent = current.slice(0, --charIndex);
+            if (charIndex === 0) {
+              deleting = false;
+              titleIndex = (titleIndex + 1) % titles.length;
+              setTimeout(tick, pauseAfterDelete);
+              return;
+            }
+          }
+          setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
+        }
+        setTimeout(tick, 500);
+      })();
+    </script>
   </body>
 </html>
