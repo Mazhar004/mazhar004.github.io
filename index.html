@@ -64,7 +64,7 @@
       <section class="hero" id="top">
         <div class="container hero-grid">
           <div>
-            <p class="eyebrow">Research Assistant | ML | Python</p>
+            <p class="eyebrow"><span class="eyebrow-typed"></span><span class="cursor"></span></p>
             <h1>Mazhar Hossain</h1>
             <p class="lead">
               Python backend and data engineer building reliable data platforms, ML-ready
@@ -550,5 +550,41 @@
     <button class="to-top" id="to-top" type="button" aria-label="Back to top">
       ↑
     </button>
+    <script>
+      (function () {
+        const typed = document.querySelector('.eyebrow-typed');
+        if (!typed) return;
+        const titles = ['Research Assistant', 'AI Engineer', 'Data Engineer'];
+        let titleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        const typeSpeed = 70;
+        const deleteSpeed = 40;
+        const pauseAfterType = 1800;
+        const pauseAfterDelete = 400;
+
+        function tick() {
+          const current = titles[titleIndex];
+          if (!deleting) {
+            typed.textContent = current.slice(0, ++charIndex);
+            if (charIndex === current.length) {
+              deleting = true;
+              setTimeout(tick, pauseAfterType);
+              return;
+            }
+          } else {
+            typed.textContent = current.slice(0, --charIndex);
+            if (charIndex === 0) {
+              deleting = false;
+              titleIndex = (titleIndex + 1) % titles.length;
+              setTimeout(tick, pauseAfterDelete);
+              return;
+            }
+          }
+          setTimeout(tick, deleting ? deleteSpeed : typeSpeed);
+        }
+        setTimeout(tick, 500);
+      })();
+    </script>
   </body>
 </html>
