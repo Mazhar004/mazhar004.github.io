@@ -301,7 +301,11 @@
 
       }
 
-      buildCV();
+      buildCV().then(() => {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage('cv-ready', '*');
+        }
+      });
     </script>
   </body>
 </html>
