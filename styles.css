@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -163,6 +165,8 @@ body[data-theme="dark"] .site-header {
   color: var(--muted);
   padding: 0.2rem 0.3rem;
   border-radius: 6px;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -189,6 +193,8 @@ body[data-theme="dark"] .site-header {
 
 .btn.primary:hover {
   background: var(--primary-dark);
+  box-shadow: 0 4px 20px rgba(30, 64, 175, 0.35);
+  transform: translateY(-1px);
 }
 
 .btn.outline {
@@ -297,6 +303,8 @@ body[data-theme="dark"] .theme-toggle__moon {
 .hero {
   padding: 4rem 0 3rem;
   scroll-margin-top: 90px;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-grid {
@@ -304,6 +312,8 @@ body[data-theme="dark"] .theme-toggle__moon {
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .eyebrow {
@@ -682,12 +692,13 @@ body[data-theme="dark"] .edu-badge--msc:focus-visible {
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.25);
 }
 
 .stats .card {
@@ -790,6 +801,8 @@ body[data-theme="dark"] .scholar-badge {
 .accordion {
   display: grid;
   gap: 1rem;
+  position: relative;
+  padding-left: 2rem;
 }
 
 .accordion-item {
@@ -798,6 +811,7 @@ body[data-theme="dark"] .scholar-badge {
   border-radius: 16px;
   padding: 0.2rem 1.2rem;
   box-shadow: var(--shadow);
+  position: relative;
 }
 
 .accordion-item summary {
@@ -913,7 +927,7 @@ body[data-theme="dark"] .scholar-badge {
 }
 
 .project-card {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-card.is-hidden {
@@ -964,6 +978,7 @@ body[data-theme="dark"] .scholar-badge {
 .skill-icon {
   width: 46px;
   height: 46px;
+  transition: transform 0.2s ease;
 }
 
 .pill-grid {
@@ -1024,12 +1039,176 @@ body[data-theme="dark"] .scholar-badge {
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: var(--stagger, 0s);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ====== INTERACTIVE ENHANCEMENTS ====== */
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: page-enter 0.6s ease-out;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--text) 0%, var(--primary) 40%, #38bdf8 60%, var(--text) 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.page-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: left 0.12s ease-out, top 0.12s ease-out, opacity 0.3s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.page-glow.visible {
+  opacity: 1;
+}
+
+body[data-theme="dark"] .page-glow {
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.07), transparent 70%);
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), #38bdf8);
+  z-index: 100;
+  border-radius: 0 2px 2px 0;
+}
+
+.accordion::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 2.5rem;
+  bottom: 2.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), rgba(56, 189, 248, 0.4), var(--primary));
+  border-radius: 2px;
+}
+
+.accordion-item::after {
+  content: '';
+  position: absolute;
+  left: calc(-2rem + 1px);
+  top: 1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  z-index: 1;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.accordion-item[open]::after {
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+body[data-theme="dark"] .accordion-item[open]::after {
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.2);
+}
+
+.accordion-item:hover {
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+body[data-theme="dark"] .accordion-item:hover {
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+body[data-theme="dark"] .btn.primary:hover {
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.25);
+}
+
+.skill-level {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.skill-level__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #38bdf8);
+  border-radius: 4px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body[data-theme="dark"] .card:hover {
+  border-color: rgba(96, 165, 250, 0.25);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(96, 165, 250, 0.1);
+}
+
+.filter-btn.active {
+  background: rgba(30, 64, 175, 0.08);
+}
+
+body[data-theme="dark"] .filter-btn.active {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.skills-grid .card:hover .skill-icon {
+  transform: scale(1.1);
+}
+
+.contact-card .btn.outline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+}
+
+body[data-theme="dark"] .contact-card .btn.outline:hover {
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
 }
 
 @media (max-width: 720px) {
@@ -1105,6 +1284,22 @@ body[data-theme="dark"] .scholar-badge {
     width: 100%;
     margin-top: 0.25rem;
   }
+
+  .accordion {
+    padding-left: 1.5rem;
+  }
+
+  .accordion-item::after {
+    left: calc(-1.5rem + 1px);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .page-glow {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1116,5 +1311,15 @@ body[data-theme="dark"] .scholar-badge {
   .edu-badge:hover,
   .edu-badge:focus-visible {
     transform: none;
+  }
+
+  .gradient-text {
+    animation: none;
+    -webkit-text-fill-color: var(--text);
+    background: none;
+  }
+
+  main {
+    animation: none;
   }
 }

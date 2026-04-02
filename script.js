@@ -27,8 +27,7 @@ const storedTheme = localStorage.getItem("theme");
 if (storedTheme) {
   setTheme(storedTheme);
 } else {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  setTheme(prefersDark ? "dark" : "light");
+  setTheme("light");
 }
 
 themeToggle?.addEventListener("click", () => {
@@ -140,3 +139,73 @@ window.addEventListener("scroll", () => {
 toTopButton?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// === Interactive Enhancements ===
+
+
+// Page-wide mouse-tracking glow
+const pageGlow = document.getElementById('page-glow');
+if (pageGlow) {
+  document.addEventListener('mousemove', (e) => {
+    pageGlow.style.left = `${e.clientX}px`;
+    pageGlow.style.top = `${e.clientY}px`;
+    pageGlow.classList.add('visible');
+  });
+  document.addEventListener('mouseleave', () => {
+    pageGlow.classList.remove('visible');
+  });
+}
+
+// Staggered reveal delays
+document.querySelectorAll('.grid, .skills-grid, .projects').forEach((grid) => {
+  const items = grid.querySelectorAll('.reveal');
+  items.forEach((item, i) => {
+    item.style.setProperty('--stagger', `${i * 0.1}s`);
+  });
+});
+
+// Scroll progress indicator
+const scrollProgress = document.getElementById('scroll-progress');
+if (scrollProgress) {
+  window.addEventListener('scroll', () => {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    scrollProgress.style.width = `${progress}%`;
+  }, { passive: true });
+}
+
+// Print CV via hidden iframe
+const printCVBtn = document.getElementById('print-cv');
+if (printCVBtn) {
+  printCVBtn.addEventListener('click', () => {
+    let iframe = document.getElementById('cv-print-frame');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'cv-print-frame';
+      iframe.src = 'cv.html';
+      iframe.style.cssText = 'position:fixed;width:0;height:0;border:none;left:-9999px';
+      document.body.appendChild(iframe);
+      iframe.onload = () => iframe.contentWindow.print();
+    } else {
+      iframe.contentWindow.print();
+    }
+  });
+}
+
+// Skill level bar animation
+const skillBars = document.querySelectorAll('.skill-level__fill');
+if (skillBars.length > 0) {
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const level = entry.target.dataset.level || '0';
+          entry.target.style.width = `${level}%`;
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  skillBars.forEach((bar) => skillObserver.observe(bar));
+}

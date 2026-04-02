@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mazhar Hossain - CV</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: "Georgia", "Times New Roman", serif;
+        color: #1a1a1a;
+        background: #f5f5f5;
+        line-height: 1.35;
+        font-size: 9.5pt;
+      }
+
+      .cv {
+        max-width: 8.5in;
+        margin: 1rem auto;
+        background: #fff;
+        padding: 0.35in 0.5in;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      }
+
+      .cv-header { text-align: center; margin-bottom: 0.08in; border-bottom: 2px solid #1a1a1a; padding-bottom: 0.06in; }
+      .cv-header h1 { font-size: 16pt; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2pt; }
+      .cv-header .subtitle { font-size: 9.5pt; color: #444; font-style: italic; margin-bottom: 4pt; }
+      .cv-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.12in; font-size: 8.5pt; color: #333; }
+      .cv-meta a { color: #333; text-decoration: none; display: inline-flex; align-items: center; gap: 3pt; }
+      .cv-meta a svg { width: 11pt; height: 11pt; flex-shrink: 0; }
+
+      .cv-section { margin-bottom: 0.06in; }
+      .cv-section-title {
+        font-size: 9.5pt;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-bottom: 1px solid #999;
+        padding-bottom: 1pt;
+        margin-bottom: 0.05in;
+      }
+
+      .cv-entry { margin-bottom: 0.06in; }
+      .cv-entry-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .cv-entry-title { font-weight: bold; font-size: 9pt; }
+      .cv-entry-date { font-size: 8.5pt; color: #555; white-space: nowrap; }
+      .cv-entry-org { font-style: italic; color: #333; font-size: 8.5pt; }
+      .cv-entry-loc { font-size: 8.5pt; color: #555; }
+      .cv-entry-sub { display: flex; justify-content: space-between; align-items: baseline; }
+      .cv-entry ul { padding-left: 0.18in; margin-top: 1pt; }
+      .cv-entry li { font-size: 8.5pt; margin-bottom: 0; line-height: 1.3; }
+
+      .cv-skills-line { font-size: 8.5pt; margin-bottom: 1pt; }
+      .cv-skills-line strong { font-size: 8.5pt; }
+
+      .cv-edu-entry { margin-bottom: 0.04in; }
+
+      .cv-certs { list-style: disc; padding-left: 0.18in; font-size: 8.5pt; columns: 2; column-gap: 0.3in; }
+      .cv-certs li { margin-bottom: 0; }
+
+      .cv-projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.04in 0.2in; }
+      .cv-projects-grid .cv-entry { margin-bottom: 0.02in; }
+      .cv-proj-desc { font-size: 8pt; color: #333; }
+
+      .cv-summary { font-size: 8.5pt; }
+
+      .cv-entry-title a, .cv-certs a { color: #1a1a1a; text-decoration: underline; text-underline-offset: 1pt; }
+
+      .cv-actions {
+        max-width: 8.5in;
+        margin: 0 auto 0.5rem;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+      }
+      .cv-actions button {
+        padding: 0.4rem 1rem;
+        border: 1px solid #ccc;
+        background: #fff;
+        border-radius: 6px;
+        font-size: 9pt;
+        cursor: pointer;
+        font-family: -apple-system, system-ui, sans-serif;
+      }
+      .cv-actions button:hover { background: #f0f0f0; }
+      .cv-actions button.primary { background: #1e40af; color: #fff; border-color: #1e40af; }
+      .cv-actions button.primary:hover { background: #1e3a8a; }
+
+      .cv-loading { text-align: center; padding: 2in 0; font-size: 11pt; color: #888; font-family: sans-serif; }
+
+      @media print {
+        body { background: none; }
+        .cv { box-shadow: none; margin: 0; padding: 0.2in 0.4in; max-width: none; }
+        .cv-actions { display: none; }
+        a { color: inherit; text-decoration: none; }
+        .cv-meta a svg { width: 10pt; height: 10pt; }
+        @page { margin: 0.2in; size: letter; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv" id="cv">
+      <p class="cv-loading">Loading CV data...</p>
+    </div>
+
+    <script>
+      // ============================================================
+      // SKILLS CONFIG — edit this JSON to update skills on the CV
+      // ============================================================
+      const SKILLS = {
+        technical: [
+          { label: 'Languages', items: 'Python, SQL' },
+          { label: 'Frameworks', items: 'Django, Flask, RASA' },
+          { label: 'Data', items: 'PostgreSQL, ETL, Airflow, Web Scraping, Selenium, Scrapy' },
+          { label: 'ML / AI', items: 'PyTorch, Scikit-learn, OpenCV, TensorFlow' },
+          { label: 'DevOps', items: 'Docker, GitHub Actions, Prometheus, Grafana' }
+        ],
+        soft: [
+          'Data Quality & Observability',
+          'Cross-team Collaboration',
+          'Technical Documentation',
+          'Problem Solving',
+          'Mentoring'
+        ]
+      };
+
+      // Companies to skip from experience
+      const SKIP_COMPANIES = ['upwork'];
+
+      // Projects to skip
+      const SKIP_PROJECTS = ['scraping solutions'];
+
+      // SVG icons
+      const ICONS = {
+        linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+        github: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>',
+        scholar: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>',
+        stackoverflow: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.133v2.13h10.66v-2.13H6.154z"/></svg>'
+      };
+
+      async function buildCV() {
+        const res = await fetch('index.html');
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+
+        // --- Name & subtitle ---
+        const name = doc.querySelector('h1')?.textContent?.trim() || 'Mazhar Hossain';
+        const subtitle = doc.querySelector('.lead')?.textContent?.trim() || '';
+
+        // --- Summary from profile section ---
+        const summary = doc.querySelector('.profile-grid p')?.textContent?.trim() || '';
+
+        // --- Location ---
+        const metaSpans = doc.querySelectorAll('.meta span');
+        const location = metaSpans[0]?.textContent?.trim() || 'Milwaukee, WI';
+
+        // --- Links ---
+        const links = {};
+        doc.querySelectorAll('a[href^="http"]').forEach(a => {
+          const href = a.getAttribute('href');
+          const text = a.textContent.trim().toLowerCase();
+          if (text.includes('github') && !links.github) links.github = href;
+          if (text.includes('linkedin') && !links.linkedin) links.linkedin = href;
+          if (text.includes('scholar') && !links.scholar) links.scholar = href;
+          if (text.includes('stack') && !links.stackoverflow) links.stackoverflow = href;
+        });
+
+        // --- Experience (skip freelance) ---
+        const expEntries = [];
+        doc.querySelectorAll('.accordion-item').forEach(item => {
+          const company = item.querySelector('.exp-company')?.textContent?.trim() || '';
+          if (SKIP_COMPANIES.includes(company.toLowerCase())) return;
+          const role = item.querySelector('.exp-designation')?.textContent?.trim() || '';
+          const meta = item.querySelector('.exp-meta')?.textContent?.trim() || '';
+          const parts = meta.split('·').map(s => s.trim());
+          const date = parts[0] || '';
+          const loc = parts[1] || '';
+          const bullets = [];
+          item.querySelectorAll('.accordion-body li').forEach(li => bullets.push(li.textContent.trim()));
+          expEntries.push({ company, role, date, loc, bullets });
+        });
+
+        // --- Education ---
+        const eduEntries = [];
+        doc.querySelectorAll('.education-card').forEach(card => {
+          const degree = card.querySelector('h3')?.textContent?.trim() || '';
+          const info = card.querySelector('.muted')?.textContent?.trim() || '';
+          const parts = info.split('·').map(s => s.trim());
+          const field = parts[0] || '';
+          const years = parts[1] || '';
+          const allP = card.querySelectorAll('p');
+          const sub = allP.length > 1 ? allP[allP.length - 1].textContent.trim() : '';
+          eduEntries.push({ degree, field, years, sub });
+        });
+
+        // --- Projects (skip excluded) ---
+        const projects = [];
+        doc.querySelectorAll('.project-card').forEach(card => {
+          const title = card.querySelector('h3')?.textContent?.trim() || '';
+          if (SKIP_PROJECTS.includes(title.toLowerCase())) return;
+          const desc = card.querySelector('p')?.textContent?.trim() || '';
+          const tags = [];
+          card.querySelectorAll('.tags span').forEach(s => tags.push(s.textContent.trim()));
+          const link = card.querySelector('.hero-links a')?.getAttribute('href') || '';
+          projects.push({ title, desc, tags, link });
+        });
+
+        // --- Certifications ---
+        const certs = [];
+        doc.querySelectorAll('.cert-card').forEach(card => {
+          const name = card.querySelector('h4')?.textContent?.trim() || '';
+          const link = card.querySelector('.hero-links a')?.getAttribute('href') || '';
+          certs.push({ name, link });
+        });
+
+        // --- Render ---
+        document.getElementById('cv').innerHTML = `
+          <header class="cv-header">
+            <h1>${name}</h1>
+            <div class="cv-meta">
+              <span>${location}</span>
+              <span>|</span>
+              <a href="${links.linkedin || '#'}" title="LinkedIn">${ICONS.linkedin} LinkedIn</a>
+              <span>|</span>
+              <a href="${links.github || '#'}" title="GitHub">${ICONS.github} GitHub</a>
+              <span>|</span>
+              <a href="${links.scholar || '#'}" title="Google Scholar">${ICONS.scholar} Scholar</a>
+              <span>|</span>
+              <a href="${links.stackoverflow || '#'}" title="Stack Overflow">${ICONS.stackoverflow} SO</a>
+            </div>
+          </header>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Summary</h2>
+            <p class="cv-summary">${summary}</p>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Experience</h2>
+            ${expEntries.map(e => `
+              <div class="cv-entry">
+                <div class="cv-entry-header">
+                  <span class="cv-entry-title">${e.role}</span>
+                  <span class="cv-entry-date">${e.date}</span>
+                </div>
+                <div class="cv-entry-sub">
+                  <span class="cv-entry-org">${e.company}</span>
+                  <span class="cv-entry-loc">${e.loc}</span>
+                </div>
+                <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+              </div>
+            `).join('')}
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Education</h2>
+            ${eduEntries.map(e => `
+              <div class="cv-edu-entry">
+                <div class="cv-entry-header">
+                  <span class="cv-entry-title">${e.field}${e.sub ? ' — ' + e.sub : ''}</span>
+                  <span class="cv-entry-date">${e.years}</span>
+                </div>
+                <div class="cv-entry-sub">
+                  <span class="cv-entry-org">${e.degree}</span>
+                </div>
+              </div>
+            `).join('')}
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Technical Skills</h2>
+            ${SKILLS.technical.map(s => `
+              <p class="cv-skills-line"><strong>${s.label}:</strong> ${s.items}</p>
+            `).join('')}
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Soft Skills</h2>
+            <p class="cv-skills-line">${SKILLS.soft.join(' · ')}</p>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Projects</h2>
+            <div class="cv-projects-grid">
+              ${projects.map(p => `
+                <div class="cv-entry">
+                  <span class="cv-entry-title">${p.link ? `<a href="${p.link}">${p.title}</a>` : p.title}</span>
+                  <span class="cv-proj-desc"> — ${p.desc} <em>(${p.tags.join(', ')})</em></span>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h2 class="cv-section-title">Certifications</h2>
+            <ul class="cv-certs">
+              ${certs.map(c => `<li>${c.link ? `<a href="${c.link}">${c.name}</a>` : c.name}</li>`).join('')}
+            </ul>
+          </section>
+        `;
+
+      }
+
+      buildCV();
+    </script>
+  </body>
+</html>
