@@ -177,17 +177,25 @@ if (scrollProgress) {
 // Print CV via hidden iframe
 const printCVBtn = document.getElementById('print-cv');
 if (printCVBtn) {
+  let cvReady = false;
+  let cvIframe = null;
+
+  window.addEventListener('message', (e) => {
+    if (e.data === 'cv-ready') {
+      cvReady = true;
+      if (cvIframe) cvIframe.contentWindow.print();
+    }
+  });
+
   printCVBtn.addEventListener('click', () => {
-    let iframe = document.getElementById('cv-print-frame');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.id = 'cv-print-frame';
-      iframe.src = 'cv.html';
-      iframe.style.cssText = 'position:fixed;width:0;height:0;border:none;left:-9999px';
-      document.body.appendChild(iframe);
-      iframe.onload = () => iframe.contentWindow.print();
-    } else {
-      iframe.contentWindow.print();
+    if (cvIframe && cvReady) {
+      cvIframe.contentWindow.print();
+    } else if (!cvIframe) {
+      cvIframe = document.createElement('iframe');
+      cvIframe.id = 'cv-print-frame';
+      cvIframe.src = 'cv.html';
+      cvIframe.style.cssText = 'position:fixed;width:0;height:0;border:none;left:-9999px';
+      document.body.appendChild(cvIframe);
     }
   });
 }
