@@ -174,6 +174,24 @@ if (scrollProgress) {
   }, { passive: true });
 }
 
+// Print CV via hidden iframe
+const printCVBtn = document.getElementById('print-cv');
+if (printCVBtn) {
+  printCVBtn.addEventListener('click', () => {
+    let iframe = document.getElementById('cv-print-frame');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'cv-print-frame';
+      iframe.src = 'cv.html';
+      iframe.style.cssText = 'position:fixed;width:0;height:0;border:none;left:-9999px';
+      document.body.appendChild(iframe);
+      iframe.onload = () => iframe.contentWindow.print();
+    } else {
+      iframe.contentWindow.print();
+    }
+  });
+}
+
 // Skill level bar animation
 const skillBars = document.querySelectorAll('.skill-level__fill');
 if (skillBars.length > 0) {
