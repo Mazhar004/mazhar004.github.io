@@ -3,22 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mazhar Hossain</title>
+    <title>Mazhar Hossain — Data Engineer</title>
     <meta
       name="description"
       content="Mazhar Hossain — Data Engineer building reliable data platforms, ETL pipelines & ML-ready analytics systems."
     />
-    <meta property="og:title" content="Mazhar Hossain" />
+    <meta property="og:title" content="Mazhar Hossain — Data Engineer" />
     <meta
       property="og:description"
       content="Reliable data platforms, ETL pipelines & ML-ready analytics systems."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mazhar004.github.io/" />
+    <meta name="theme-color" content="#f4f1ea" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -26,76 +27,89 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="page-glow" id="page-glow"></div>
     <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
 
     <header class="site-header">
       <div class="container nav">
-        <a class="brand" href="#top">MH</a>
+        <a class="brand" href="#top" data-cursor="hover">Mazhar / MH</a>
         <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
           <span class="nav-toggle__line"></span>
         </button>
         <nav class="nav-links" id="nav-menu" role="navigation">
-          <a href="#profile">Profile</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#publications">Publications</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#contact">Contact</a>
+          <a href="#profile" data-cursor="hover">Profile</a>
+          <a href="#experience" data-cursor="hover">Experience</a>
+          <a href="#education" data-cursor="hover">Education</a>
+          <a href="#publications" data-cursor="hover">Publications</a>
+          <a href="#skills" data-cursor="hover">Skills</a>
+          <a href="#projects" data-cursor="hover">Projects</a>
+          <a href="#certifications" data-cursor="hover">Certs</a>
+          <a href="#contact" data-cursor="hover">Contact</a>
         </nav>
-        <button class="btn ghost theme-toggle theme-toggle--icon-only" id="theme-toggle" type="button" aria-label="Toggle theme">
-          <span class="theme-toggle__icon theme-toggle__icon--hidden-mobile" aria-hidden="true"></span>
-          <span class="theme-toggle__status" aria-hidden="true">
-            <svg class="theme-toggle__sun" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-            </svg>
-            <svg class="theme-toggle__moon" viewBox="0 0 24 24" role="img" aria-hidden="true">
-              <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5Z"></path>
-            </svg>
-          </span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme" data-cursor="hover">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5Z"></path>
+          </svg>
         </button>
       </div>
     </header>
 
     <main id="main">
       <section class="hero" id="top">
+        <div class="hero-mesh" aria-hidden="true">
+          <span class="blob blob-1"></span>
+          <span class="blob blob-2"></span>
+          <span class="blob blob-3"></span>
+        </div>
         <div class="container hero-grid">
           <div>
+            <div class="hero-meta">
+              <span><i class="dot"></i> Milwaukee, WI · 41.88°N</span>
+              <span>EST. 2019</span>
+              <span>v.2026.05</span>
+            </div>
             <p class="eyebrow"><span class="eyebrow-typed"></span><span class="cursor"></span></p>
-            <h1 class="gradient-text">Mazhar Hossain</h1>
+            <h1>
+              <span class="word"><span>Mazhar</span></span>
+              <span class="word"><span class="italic">Hossain.</span></span>
+            </h1>
             <p class="lead">
-              Python backend and data engineer building reliable data platforms, ML-ready
-              pipelines & production APIs for analytics and forecasting.
+              Python backend &amp; data engineer crafting <em>reliable platforms</em>,
+              ML-ready pipelines and production APIs. Currently exploring
+              <em>mHealth research</em> at Marquette — turning noisy biosignals into
+              actionable insight.
             </p>
             <div class="hero-badges">
-              <span>Research & mHealth</span>
+              <span>Research &amp; mHealth</span>
               <span>ML Systems</span>
               <span>Data Platforms</span>
             </div>
             <div class="cta">
-              <a class="btn primary" href="#contact">Contact</a>
-              <button class="btn outline" id="print-cv" type="button">Download CV</button>
-            </div>
-            <div class="meta">
-              <span>Milwaukee, WI</span>
-              <span>Open to collaboration</span>
+              <a class="btn primary" href="#contact" data-cursor="hover" data-magnetic>
+                Start a conversation <span class="arrow">→</span>
+              </a>
+              <button class="btn outline" id="print-cv" type="button" data-cursor="hover" data-magnetic>
+                Download CV <span class="arrow">↓</span>
+              </button>
             </div>
             <div class="hero-metrics">
               <div>
-                <p class="metric">6+ years</p>
-                <p>Industry experience</p>
+                <p class="metric" data-target="6" data-suffix="+">6+</p>
+                <p>Years industry</p>
               </div>
               <div>
-                <p class="metric">1k+</p>
-                <p>StackOverflow</p>
+                <p class="metric" data-target="500" data-suffix="+">500+</p>
+                <p>Data sources</p>
               </div>
               <div>
-                <p class="metric">200+</p>
+                <p class="metric" data-target="200" data-suffix="+">200+</p>
                 <p>Scholar citations</p>
               </div>
             </div>
@@ -110,27 +124,59 @@
                 <li>Improved incident response time by 35%</li>
               </ul>
               <div class="hero-links">
-                <a href="https://github.com/mazhar004" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/mazhar004/" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer">Stack Overflow</a>
-                <a href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+                <a href="https://github.com/mazhar004" target="_blank" rel="noreferrer" data-cursor="hover">GitHub</a>
+                <a href="https://www.linkedin.com/in/mazhar004/" target="_blank" rel="noreferrer" data-cursor="hover">LinkedIn</a>
+                <a href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer" data-cursor="hover">Stack Overflow</a>
+                <a href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer" data-cursor="hover">Scholar</a>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="hero-ticker" aria-hidden="true">
+          <div class="ticker-track">
+            <span>Python</span>
+            <span>PostgreSQL</span>
+            <span>Airflow</span>
+            <span>Docker</span>
+            <span>PyTorch</span>
+            <span>REST APIs</span>
+            <span>Data Quality</span>
+            <span>Observability</span>
+            <span>ML Systems</span>
+            <span>mHealth Research</span>
+            <span>ETL</span>
+            <span>Computer Vision</span>
+            <!-- duplicate for seamless loop -->
+            <span>Python</span>
+            <span>PostgreSQL</span>
+            <span>Airflow</span>
+            <span>Docker</span>
+            <span>PyTorch</span>
+            <span>REST APIs</span>
+            <span>Data Quality</span>
+            <span>Observability</span>
+            <span>ML Systems</span>
+            <span>mHealth Research</span>
+            <span>ETL</span>
+            <span>Computer Vision</span>
           </div>
         </div>
       </section>
 
       <section class="section" id="profile">
         <div class="container">
-          <h2>Profile</h2>
+          <div class="section-title reveal">
+            <h2>About <em>the work</em></h2>
+            <p>The discipline of making data systems boringly reliable.</p>
+          </div>
           <div class="profile-grid">
             <div>
               <p>
-                Python backend and data engineer with 6+ years of experience across data
-                pipelines, ML systems & production APIs. Focused on data quality,
-                observability & scalable ingestion frameworks. Research Assistant at
-                Marquette University (mHealth), currently developing ML-enabled mHealth 
-                data collection platforms.
+                Python backend and data engineer with 6+ years across data
+                pipelines, ML systems and production APIs. Focused on data
+                quality, observability and scalable ingestion frameworks.
+                Research Assistant at Marquette University (mHealth), currently
+                developing ML-enabled mHealth data collection platforms.
               </p>
               <div class="profile-pills">
                 <span>Data Integrity</span>
@@ -139,71 +185,65 @@
                 <span>Automation</span>
               </div>
             </div>
-            <div class="card spotlight">
+            <div class="spotlight">
               <h3>Top Skills</h3>
               <ul>
-                <li>Python & Backend Systems</li>
-                <li>ETL & Automation</li>
-                <li>Data Quality & Observability</li>
+                <li>Python &amp; Backend Systems</li>
+                <li>ETL &amp; Automation</li>
+                <li>Data Quality &amp; Observability</li>
               </ul>
             </div>
           </div>
           <div class="grid stats">
             <div class="card reveal">
               <p class="stat" data-target="6" data-suffix="+">0</p>
-              <p>Years in data & ML engineering</p>
+              <p>Years in data &amp; ML engineering</p>
             </div>
             <div class="card reveal">
               <p class="stat" data-target="500" data-suffix="+">0</p>
               <p>Data sources integrated</p>
             </div>
-            <a class="card reveal stat-link" href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer">
+            <a class="card reveal stat-link" href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer" data-cursor="hover">
               <p class="stat" data-target="1000" data-suffix="+">0</p>
               <p>Stack Overflow reputation</p>
-              <span class="stat-badge so-badge">
-                <svg viewBox="0 0 120 120" width="20" height="20" aria-hidden="true"><path fill="#bcbbbb" d="M84.4 93.8V70.6h7.7v30.9H22.6V70.6h7.7v23.2z"/><path fill="#f48024" d="M38.8 68.4l37.8 7.9 1.6-7.6-37.8-7.9-1.6 7.6zm5-18l35 16.3 3.2-7-35-16.4-3.2 7.1zm9.7-17.2l29.7 24.7 4.9-5.9-29.7-24.7-4.9 5.9zm19.2-18.3l-6.2 4.6 23 31 6.2-4.6-23-31zM38 86h38.6v-7.7H38V86z"/></svg>
-                SO
-              </span>
+              <span class="stat-badge so-badge">SO ↗</span>
             </a>
-            <a class="card reveal stat-link" href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer">
+            <a class="card reveal stat-link" href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer" data-cursor="hover">
               <p class="stat" data-target="200" data-suffix="+">0</p>
               <p>Google Scholar citations</p>
-              <span class="stat-badge scholar-badge">
-                <svg viewBox="0 0 512 512" width="20" height="20" aria-hidden="true"><path fill="#4285f4" d="M256 411.12L0 202.667 256 0z"/><path fill="#356ac3" d="M256 411.12l256-208.453L256 0z"/><circle fill="#a0c3ff" cx="256" cy="362.667" r="149.333"/><path fill="#76a7fa" d="M121.037 298.667c23.968-67.99 88.963-116.667 165.63-116.667s141.662 48.677 165.63 116.667H121.037z"/></svg>
-                Scholar
-              </span>
+              <span class="stat-badge scholar-badge">Scholar ↗</span>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="section" id="experience">
+      <section class="section alt" id="experience">
         <div class="container">
-          <div class="section-title">
-            <h2>Experience</h2>
-            <p>Research, data engineering & ML-focused roles.</p>
+          <div class="section-title reveal">
+            <h2>Work <em>history</em></h2>
+            <p>Research, data engineering &amp; ML-focused roles.</p>
           </div>
           <div class="accordion">
             <details class="accordion-item" open>
-              <summary>
+              <summary data-cursor="hover">
                 <div class="exp-header">
                   <span class="exp-company">Marquette University</span>
                   <span class="exp-designation">Research Assistant</span>
                 </div>
-                <span class="muted exp-meta">Jan 2026 - Present · Milwaukee, WI</span>
+                <span class="exp-meta">Jan 2026 — Present · Milwaukee, WI</span>
                 <span class="accordion-chevron" aria-hidden="true">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
                 </span>
               </summary>
               <div class="accordion-body">
-                <p class="exp-highlight">mHealth research, applied ML & data processing for health-focused studies.</p>
+                <p class="exp-highlight">mHealth research, applied ML &amp; data processing for health-focused studies.</p>
                 <ul>
                   <li>Research on mHealth applications and applied ML.</li>
-                  <li>Designing & developing a suicide prevention survey system for early risk detection & behavioral assessment.</li>
-                  <li>Building multimodal patient monitoring frameworks for mental & physiological health tracking.</li>
-                  <li>Researching neuro‑signal correlations with physical health indicators.</li>
+                  <li>Designing &amp; developing a suicide prevention survey system for early risk detection &amp; behavioral assessment.</li>
+                  <li>Building multimodal patient monitoring frameworks for mental &amp; physiological health tracking.</li>
+                  <li>Researching neuro-signal correlations with physical health indicators.</li>
                   <li>Designing computer vision methods for contactless health monitoring via face and fingertip video signals.</li>
-                  <li>Extracting remote biomarkers including immunization & white blood cell (WBC) indicators.</li>
+                  <li>Extracting remote biomarkers including immunization &amp; white blood cell (WBC) indicators.</li>
                 </ul>
                 <div class="tags">
                   <span>Research</span><span>ML</span><span>Healthcare</span>
@@ -211,18 +251,18 @@
               </div>
             </details>
             <details class="accordion-item">
-              <summary>
+              <summary data-cursor="hover">
                 <div class="exp-header">
                   <span class="exp-company">Cefalo</span>
-                  <span class="exp-designation">Software Engineer → Senior Software Engineer</span>
+                  <span class="exp-designation">Software Engineer → Senior</span>
                 </div>
-                <span class="muted exp-meta">Sep 2021 - Dec 2025 · Dhaka, Bangladesh</span>
+                <span class="exp-meta">Sep 2021 — Dec 2025 · Dhaka, BD</span>
                 <span class="accordion-chevron" aria-hidden="true">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
                 </span>
               </summary>
               <div class="accordion-body">
-                <p class="exp-highlight">Data platform reliability, 500+ source pipelines & 95% faster debugging via automation.</p>
+                <p class="exp-highlight">Data platform reliability, 500+ source pipelines &amp; 95% faster debugging via automation.</p>
                 <ul>
                   <li>Built energy market forecasting data products and RESTful backends.</li>
                   <li>Built RESTful services for urgent market data ingestion.</li>
@@ -238,18 +278,18 @@
               </div>
             </details>
             <details class="accordion-item">
-              <summary>
+              <summary data-cursor="hover">
                 <div class="exp-header">
                   <span class="exp-company">Upwork</span>
                   <span class="exp-designation">Python Developer (Freelance)</span>
                 </div>
-                <span class="muted exp-meta">Feb 2021 - Dec 2022 · Remote</span>
+                <span class="exp-meta">Feb 2021 — Dec 2022 · Remote</span>
                 <span class="accordion-chevron" aria-hidden="true">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
                 </span>
               </summary>
               <div class="accordion-body">
-                <p class="exp-highlight">ETL delivery, system stabilization & 100% job success rate.</p>
+                <p class="exp-highlight">ETL delivery, system stabilization &amp; 100% job success rate.</p>
                 <ul>
                   <li>Delivered ETL pipelines across diverse data sources.</li>
                   <li>Stabilized systems by fixing and optimizing existing scripts.</li>
@@ -262,18 +302,18 @@
               </div>
             </details>
             <details class="accordion-item">
-              <summary>
+              <summary data-cursor="hover">
                 <div class="exp-header">
                   <span class="exp-company">BJIT</span>
                   <span class="exp-designation">AI Engineer</span>
                 </div>
-                <span class="muted exp-meta">Oct 2019 - Aug 2021 · Dhaka, Bangladesh</span>
+                <span class="exp-meta">Oct 2019 — Aug 2021 · Dhaka, BD</span>
                 <span class="accordion-chevron" aria-hidden="true">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 6 8 10 12 6"/></svg>
                 </span>
               </summary>
               <div class="accordion-body">
-                <p class="exp-highlight">Computer vision (74% detection accuracy), NLP chatbots (+43% accuracy) & recommender systems.</p>
+                <p class="exp-highlight">Computer vision (74% detection accuracy), NLP chatbots (+43% accuracy) &amp; recommender systems.</p>
                 <ul>
                   <li>Improved dataset quality by 30% through augmentation and labeling.</li>
                   <li>Delivered drone small-object detection with 74% accuracy.</li>
@@ -289,44 +329,45 @@
         </div>
       </section>
 
-      <section class="section alt" id="education">
+      <section class="section" id="education">
         <div class="container">
-          <div class="section-title">
-            <h2>Education</h2>
+          <div class="section-title reveal">
+            <h2>Education <em>&amp; learning</em></h2>
+            <p>Where the foundations were poured.</p>
           </div>
-          <div class="grid certifications-grid education-cards">
+          <div class="grid education-cards">
             <article class="card education-card reveal">
               <div class="education-card__badges">
-                <span class="edu-badge edu-badge--msc" aria-label="Master of Science degree">M.Sc.</span>
+                <span class="edu-badge" aria-label="Master of Science degree">M.Sc.</span>
               </div>
               <h3>Marquette University</h3>
-              <p class="muted">Master’s in Data Science · 2026 - 2027</p>
+              <p class="muted">Master's in Data Science · 2026 — 2027</p>
               <p>Research Assistant (mHealth)</p>
             </article>
             <article class="card education-card reveal">
               <div class="education-card__badges">
-                <span class="edu-badge edu-badge--honours" aria-label="Honours degree">B.Sc.</span>
+                <span class="edu-badge" aria-label="Honours degree">B.Sc.</span>
               </div>
-              <h3>Khulna University of Engineering & Technology</h3>
-              <p class="muted">B.Sc. in ECE · 2014 - 2018</p>
-              <p>Electronics & Communication Engineering</p>
+              <h3>Khulna University of Engineering &amp; Technology</h3>
+              <p class="muted">B.Sc. in ECE · 2014 — 2018</p>
+              <p>Electronics &amp; Communication Engineering</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="publications">
+      <section class="section alt" id="publications">
         <div class="container">
-          <div class="section-title">
-            <h2>Publications</h2>
+          <div class="section-title reveal">
+            <h2>Selected <em>writings</em></h2>
             <div class="publication-profiles">
-              <a href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
-              <a href="https://orcid.org/0000-0001-7118-8248" target="_blank" rel="noreferrer">ORCID</a>
-              <a href="https://www.researchgate.net/profile/Mazhar-Hossain" target="_blank" rel="noreferrer">Research Gate</a>
+              <a href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer" data-cursor="hover">Google Scholar</a>
+              <a href="https://orcid.org/0000-0001-7118-8248" target="_blank" rel="noreferrer" data-cursor="hover">ORCID</a>
+              <a href="https://www.researchgate.net/profile/Mazhar-Hossain" target="_blank" rel="noreferrer" data-cursor="hover">Research Gate</a>
             </div>
           </div>
           <div class="grid">
-            <article class="card">
+            <article class="card reveal">
               <h4>Employing PCA and t-statistical approach for feature extraction and classification of emotion from multichannel EEG signal</h4>
               <p class="muted">Egyptian Informatics Journal · Nov 2, 2019</p>
               <ul>
@@ -335,8 +376,8 @@
                 <li>Best accuracy: 86.57% (ANN, subject-dependent).</li>
               </ul>
               <div class="hero-links">
-                <a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank" rel="noreferrer">
-                  View paper
+                <a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank" rel="noreferrer" data-cursor="hover">
+                  Read paper
                 </a>
               </div>
             </article>
@@ -346,27 +387,28 @@
 
       <section class="section" id="skills">
         <div class="container">
-          <div class="section-title">
-            <h2>Skills</h2>
+          <div class="section-title reveal">
+            <h2>Toolkit <em>&amp; stack</em></h2>
+            <p>The instruments behind the work — depth on left, breadth below.</p>
           </div>
-          <div class="grid skills-grid">
-            <div class="card">
+          <div class="skills-grid">
+            <div class="card reveal">
               <div class="skill-icon">
                 <img src="static/python-original.svg" alt="Python" />
               </div>
               <h4>Python</h4>
-              <p>ETL, automation & production APIs.</p>
+              <p>ETL, automation &amp; production APIs.</p>
               <div class="skill-level"><div class="skill-level__fill" data-level="95"></div></div>
             </div>
-            <div class="card">
+            <div class="card reveal">
               <div class="skill-icon">
                 <img src="static/postgresql-original.svg" alt="PostgreSQL" />
               </div>
               <h4>PostgreSQL</h4>
-              <p>Data modeling, optimization & reporting.</p>
+              <p>Data modeling, optimization &amp; reporting.</p>
               <div class="skill-level"><div class="skill-level__fill" data-level="90"></div></div>
             </div>
-            <div class="card">
+            <div class="card reveal">
               <div class="skill-icon">
                 <img src="static/django.png" alt="Django" />
               </div>
@@ -374,7 +416,7 @@
               <p>REST APIs and data-driven applications.</p>
               <div class="skill-level"><div class="skill-level__fill" data-level="85"></div></div>
             </div>
-            <div class="card">
+            <div class="card reveal">
               <div class="skill-icon">
                 <img src="static/docker-original.svg" alt="Docker" />
               </div>
@@ -401,21 +443,22 @@
 
       <section class="section alt" id="projects">
         <div class="container">
-          <div class="section-title">
-            <h2>Projects</h2>
+          <div class="section-title reveal">
+            <h2>Selected <em>projects</em></h2>
+            <p>Filter by domain — each card breathes when you hover.</p>
           </div>
           <div class="filters" role="tablist" aria-label="Project filters">
-            <button class="filter-btn active" type="button" data-filter="all">All</button>
-            <button class="filter-btn" type="button" data-filter="ml">ML & AI</button>
-            <button class="filter-btn" type="button" data-filter="data">Data Engineering</button>
-            <button class="filter-btn" type="button" data-filter="web">Web Apps</button>
+            <button class="filter-btn active" type="button" data-filter="all" data-cursor="hover">All</button>
+            <button class="filter-btn" type="button" data-filter="ml" data-cursor="hover">ML &amp; AI</button>
+            <button class="filter-btn" type="button" data-filter="data" data-cursor="hover">Data Eng</button>
+            <button class="filter-btn" type="button" data-filter="web" data-cursor="hover">Web Apps</button>
           </div>
           <div class="grid projects" data-filter-grid>
             <article class="card project-card reveal" data-category="ml">
               <h3>Chatbot Platform</h3>
               <p>
                 Intent- and entity-based chatbot system with dataset tooling,
-                multi-profile support & Flask APIs.
+                multi-profile support &amp; Flask APIs.
               </p>
               <div class="tags">
                 <span>RASA</span><span>Flask</span><span>NLP</span><span>CUDA</span>
@@ -431,7 +474,7 @@
                 <span>PyTorch</span><span>OpenCV</span><span>TensorBoard</span>
               </div>
               <div class="hero-links">
-                <a href="https://github.com/Mazhar004/object-detection-api" target="_blank" rel="noreferrer">
+                <a href="https://github.com/Mazhar004/object-detection-api" target="_blank" rel="noreferrer" data-cursor="hover">
                   View project
                 </a>
               </div>
@@ -445,7 +488,7 @@
                 <span>Django</span><span>HTML/CSS</span><span>REST</span>
               </div>
               <div class="hero-links">
-                <a href="https://prince004.pythonanywhere.com/weblocate" target="_blank" rel="noreferrer">
+                <a href="https://prince004.pythonanywhere.com/weblocate" target="_blank" rel="noreferrer" data-cursor="hover">
                   View app
                 </a>
               </div>
@@ -460,7 +503,7 @@
                 <span>BeautifulSoup</span><span>Selenium</span><span>Scrapy</span>
               </div>
               <div class="hero-links">
-                <a href="https://github.com/Mazhar004/scraping" target="_blank" rel="noreferrer">
+                <a href="https://github.com/Mazhar004/scraping" target="_blank" rel="noreferrer" data-cursor="hover">
                   View repo
                 </a>
               </div>
@@ -471,8 +514,9 @@
 
       <section class="section" id="certifications">
         <div class="container">
-          <div class="section-title">
-            <h2>Certifications</h2>
+          <div class="section-title reveal">
+            <h2>Certifications <em>&amp; credentials</em></h2>
+            <p>Receipts for the curiosity.</p>
           </div>
           <div class="grid">
             <article class="card cert-card reveal">
@@ -481,7 +525,7 @@
                 <span>Secure Coding</span><span>Vulnerability Assessment</span><span>Security Testing</span>
               </div>
               <div class="hero-links">
-                <a href="https://www.secureflag.com/s?f1a679f6-27b1-488a-9493-7cba93e24130" target="_blank" rel="noreferrer">
+                <a href="https://www.secureflag.com/s?f1a679f6-27b1-488a-9493-7cba93e24130" target="_blank" rel="noreferrer" data-cursor="hover">
                   View certificate
                 </a>
               </div>
@@ -494,7 +538,7 @@
                 <span>SQL</span>
               </div>
               <div class="hero-links">
-                <a href="https://www.coursera.org/account/accomplishments/verify/9ZGFH9U5RJQM?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" rel="noreferrer">
+                <a href="https://www.coursera.org/account/accomplishments/verify/9ZGFH9U5RJQM?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" rel="noreferrer" data-cursor="hover">
                   View certificate
                 </a>
               </div>
@@ -502,16 +546,16 @@
             <article class="card cert-card reveal">
               <h4>Python Specialization</h4>
               <div class="tags">
-                <span>Classes & Inheritance</span><span>Web Data</span>
+                <span>Classes &amp; Inheritance</span><span>Web Data</span>
                 <span>Data Visualization</span><span>Pillow</span>
                 <span>Tesseract</span><span>OpenCV</span>
               </div>
               <div class="hero-links">
-                <a href="https://www.coursera.org/account/accomplishments/specialization/TN69JGDPTX3Y" target="_blank" rel="noreferrer">
-                  Data Access & Visualization
+                <a href="https://www.coursera.org/account/accomplishments/specialization/TN69JGDPTX3Y" target="_blank" rel="noreferrer" data-cursor="hover">
+                  Data Access &amp; Visualization
                 </a>
-                <a href="https://www.coursera.org/account/accomplishments/specialization/QK9FAKF7JCBA" target="_blank" rel="noreferrer">
-                  OOP & Data Collection
+                <a href="https://www.coursera.org/account/accomplishments/specialization/QK9FAKF7JCBA" target="_blank" rel="noreferrer" data-cursor="hover">
+                  OOP &amp; Data Collection
                 </a>
               </div>
             </article>
@@ -523,7 +567,7 @@
                 <span>Transfer Learning</span>
               </div>
               <div class="hero-links">
-                <a href="https://www.coursera.org/account/accomplishments/specialization/FRL8YY38G773" target="_blank" rel="noreferrer">
+                <a href="https://www.coursera.org/account/accomplishments/specialization/FRL8YY38G773" target="_blank" rel="noreferrer" data-cursor="hover">
                   View certificate
                 </a>
               </div>
@@ -536,7 +580,7 @@
                 <span>Numpy</span><span>TensorFlow</span>
               </div>
               <div class="hero-links">
-                <a href="https://www.coursera.org/account/accomplishments/verify/MENNNZ7DR22Z" target="_blank" rel="noreferrer">
+                <a href="https://www.coursera.org/account/accomplishments/verify/MENNNZ7DR22Z" target="_blank" rel="noreferrer" data-cursor="hover">
                   View certificate
                 </a>
               </div>
@@ -548,17 +592,19 @@
       <section class="section alt" id="contact">
         <div class="container contact">
           <div>
-            <h2>Let’s Connect</h2>
+            <h2>Let's <em>build something</em>.</h2>
             <p>
-              I’m open to opportunities in data engineering, analytics & ML systems.
-              Reach out for collaborations or consulting.
+              Open to opportunities in data engineering, analytics &amp; ML
+              systems. Collaboration, consulting, or a quick chat about a
+              gnarly pipeline — pick whichever door you prefer.
             </p>
           </div>
           <div class="contact-card">
-            <a class="btn outline" href="https://www.linkedin.com/in/mazhar004/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn outline" href="https://github.com/mazhar004" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn outline" href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer">Stack Overflow</a>
-            <a class="btn outline" href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+            <a class="btn outline" href="mailto:princemazhar.mp@gmail.com" data-cursor="hover">Email <span class="arrow">→</span></a>
+            <a class="btn outline" href="https://www.linkedin.com/in/mazhar004/" target="_blank" rel="noreferrer" data-cursor="hover">LinkedIn <span class="arrow">→</span></a>
+            <a class="btn outline" href="https://github.com/mazhar004" target="_blank" rel="noreferrer" data-cursor="hover">GitHub <span class="arrow">→</span></a>
+            <a class="btn outline" href="https://stackoverflow.com/users/11755018/mazhar" target="_blank" rel="noreferrer" data-cursor="hover">Stack Overflow <span class="arrow">→</span></a>
+            <a class="btn outline" href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer" data-cursor="hover">Scholar <span class="arrow">→</span></a>
           </div>
         </div>
       </section>
@@ -566,18 +612,18 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Mazhar Hossain. All rights reserved.</p>
+        <span>© <span id="year"></span> · Mazhar Hossain</span>
+        <span>Built with care · Milwaukee &amp; Dhaka</span>
+        <span>v.2026.05</span>
       </div>
     </footer>
-    <button class="to-top" id="to-top" type="button" aria-label="Back to top">
-      ↑
-    </button>
+    <button class="to-top" id="to-top" type="button" aria-label="Back to top" data-cursor="hover">↑</button>
     <script>
       (function () {
         const typed = document.querySelector('.eyebrow-typed');
         if (!typed) return;
-        const titles = ['Python Developer', 'AI Engineer',
-                        'Data Engineer', 'Research Assistant'];
+        const titles = ['Data Engineer', 'Python Developer',
+                        'AI Engineer', 'Research Assistant'];
         let titleIndex = 0;
         let charIndex = 0;
         let deleting = false;
