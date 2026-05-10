@@ -62,7 +62,7 @@ const setTheme = (theme, event) => {
   });
 };
 
-const storedTheme = localStorage.getItem("theme") || "light";
+const storedTheme = localStorage.getItem("theme") || "dark";
 applyTheme(storedTheme);
 
 themeToggle?.addEventListener("click", (e) => {
