@@ -1492,9 +1492,7 @@ h1 .italic {
   to { transform: translateX(-50%); }
 }
 
-.hero:hover .ticker-track {
-  animation-play-state: paused;
-}
+/* Ticker always animates — no hover pause */
 
 /* ============================================================
    Sections
@@ -2580,7 +2578,7 @@ body[data-theme="dark"] .projects .hero-links a + a:hover {
   .section-title { gap: 1rem; margin-bottom: 2.5rem; }
   .accordion { padding-left: 1.75rem; }
   .accordion-item::before { left: -1.75rem; }
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle { display: inline-flex; margin-left: auto; }
 
   .nav-links {
     display: none;
@@ -2597,6 +2595,7 @@ body[data-theme="dark"] .projects .hero-links a + a:hover {
   }
 
   .site-header .container.nav { position: relative; flex-wrap: wrap; }
+
 
   .nav-links.is-open { display: flex; }
 
@@ -4669,6 +4668,26 @@ body[data-theme="dark"] .shape-3 { opacity: calc(0.40 * var(--lc-fade, 1)); }
 @media (max-width: 720px) {
   .hero-impact-card__list {
     grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ============================================================
+   Mobile final overrides — must come last to beat base + cinematic
+   ============================================================ */
+@media (max-width: 880px) {
+  .hero-name {
+    font-size: clamp(2.6rem, 9.5vw, 4.2rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .hero-name .h-line {
+    display: inline-block;
+    overflow: visible;
+  }
+  .hero-name .h-line:first-child::after {
+    content: "\00a0";
   }
 }
 
