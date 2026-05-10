@@ -203,17 +203,7 @@ toTopButton?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
 });
 
-/* ---------- Print CV (open in new tab + auto-print) ---------- */
-
-document.querySelectorAll('#print-cv, [data-cv-trigger]').forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    // Open cv.html in a new tab; cv.html detects ?print=1 and auto-prints itself
-    const win = window.open("cv.html?print=1", "_blank", "noopener");
-    // Older browsers may block popups silently; if so, fall back to direct nav
-    if (!win) window.location.href = "cv.html";
-  });
-});
+/* ---------- Print CV (anchor opens cv.html?print=1, which auto-prints) ---------- */
 
 /* ---------- Card spotlight + 3D tilt ---------- */
 

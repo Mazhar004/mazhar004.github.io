@@ -22,8 +22,8 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2026-05-09b" />
-    <script defer src="script.js?v=2026-05-09a"></script>
+    <link rel="stylesheet" href="styles.css?v=2026-05-10e" />
+    <script defer src="script.js?v=2026-05-10c"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -85,12 +85,27 @@
               </ul>
             </div>
 
-            <p class="hero-tag-line" data-scroll="up">
-              Python backend &amp; data engineer building <em>reliable data platforms</em>,
-              ML-ready pipelines &amp; production APIs. Currently exploring
-              <em>mHealth research</em> at Marquette — turning noisy biosignals into
-              actionable insight.
-            </p>
+            <div class="hero-impact-card" data-scroll="up">
+              <span class="hero-impact-card__label">Impact</span>
+              <ul class="hero-impact-card__list" data-stagger>
+                <li>
+                  <span class="impact-num">500+</span>
+                  <span class="impact-text">data sources integrated</span>
+                </li>
+                <li>
+                  <span class="impact-num">95%</span>
+                  <span class="impact-text">faster debugging via automation</span>
+                </li>
+                <li>
+                  <span class="impact-num">60%</span>
+                  <span class="impact-text">less effort onboarding new sources</span>
+                </li>
+                <li>
+                  <span class="impact-num">35%</span>
+                  <span class="impact-text">faster incident response time</span>
+                </li>
+              </ul>
+            </div>
 
             <div class="hero-meta-row">
               <div class="hero-info-blocks" data-stagger data-scroll="up">
@@ -111,9 +126,9 @@
                 <a class="btn primary" href="#contact" data-magnetic data-cursor="hover">
                   Get in touch <span class="arrow">→</span>
                 </a>
-                <button class="btn outline" id="print-cv" type="button" data-magnetic data-cursor="hover">
+                <a class="btn outline" id="print-cv" href="cv.html?print=1" target="_blank" rel="noopener" data-magnetic data-cursor="hover">
                   CV <span class="arrow">↓</span>
-                </button>
+                </a>
                 <a class="btn ghost" href="https://github.com/mazhar004" target="_blank" rel="noreferrer" data-cursor="hover">
                   GitHub <span class="arrow">↗</span>
                 </a>
@@ -160,7 +175,6 @@
         <div class="container">
           <div class="section-title" data-scroll="up">
             <h2><span class="h2-main">About</span> <em>the work.</em></h2>
-            <p>The quiet discipline of making data systems boringly reliable: pipelines that don't wake you at 3 a.m., dashboards you can actually trust.</p>
           </div>
           <div class="profile-grid">
             <div data-scroll="up">
@@ -214,7 +228,6 @@
         <div class="container">
           <div class="section-title" data-scroll="up">
             <h2><span class="h2-main">Work</span> <em>history.</em></h2>
-            <p>Six years of pipelines, platforms and ML systems, across research labs, product teams and the occasional 3 a.m. on-call.</p>
           </div>
           <div class="accordion">
             <details class="accordion-item" open>
@@ -330,7 +343,6 @@
         <div class="container">
           <div class="section-title" data-scroll="up">
             <h2><span class="h2-main">Education</span> <em>&amp; foundations.</em></h2>
-            <p>Where the curiosity was poured into form.</p>
           </div>
           <div class="grid education-cards" data-stagger data-scroll="up">
             <article class="card education-card">
@@ -356,7 +368,7 @@
       <section class="section alt" id="publications">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Selected</span> <em>writings.</em></h2>
+            <h2><span class="h2-main">Publications</span></h2>
             <div class="publication-profiles" data-stagger>
               <a href="https://scholar.google.com/citations?user=k7h0b8gAAAAJ" target="_blank" rel="noreferrer" data-cursor="hover">Google Scholar</a>
               <a href="https://orcid.org/0000-0001-7118-8248" target="_blank" rel="noreferrer" data-cursor="hover">ORCID</a>
@@ -386,7 +398,6 @@
         <div class="container">
           <div class="section-title" data-scroll="up">
             <h2><span class="h2-main">Toolkit</span> <em>&amp; stack.</em></h2>
-            <p>The instruments behind the work: depth in the columns, breadth below.</p>
           </div>
           <div class="skills-grid" data-stagger data-scroll="up">
             <div class="card">
@@ -442,7 +453,6 @@
         <div class="container">
           <div class="section-title" data-scroll="up">
             <h2><span class="h2-main">Selected</span> <em>projects.</em></h2>
-            <p>A few favorites. Filter by domain. Each card breathes when you touch it.</p>
           </div>
           <div class="filters" role="tablist" aria-label="Project filters">
             <button class="filter-btn active" type="button" data-filter="all" data-cursor="hover">All</button>
@@ -514,7 +524,6 @@
         <div class="container">
           <div class="section-title" data-scroll="up">
             <h2><span class="h2-main">Certifications</span> <em>&amp; credentials.</em></h2>
-            <p>Receipts for the curiosity.</p>
           </div>
           <div class="grid cert-grid" data-stagger data-scroll="up">
             <article class="card cert-card">
