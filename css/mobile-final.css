@@ -1,0 +1,18 @@
+/* ============================================================
+   Mobile final overrides — must come last to beat base + cinematic
+   ============================================================ */
+@media (max-width: 880px) {
+  .hero-name {
+    font-size: clamp(2.6rem, 9.5vw, 4.2rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .hero-name .h-line {
+    display: inline-block;
+    overflow: visible;
+  }
+  .hero-name .h-line:first-child::after {
+    content: "\00a0";
+  }
+}
+

@@ -1,0 +1,105 @@
+/* ============================================================
+   Mobile
+   ============================================================ */
+
+@media (max-width: 880px) {
+  .hero { padding: 3rem 0 0; min-height: auto; display: block; }
+  .hero > .container { align-self: auto; justify-self: auto; }
+  .hero-ticker { margin-top: 2rem; }
+  .section { padding: 4.5rem 0; }
+  .section-title { gap: 1rem; margin-bottom: 2.5rem; }
+  .accordion { padding-left: 1.75rem; }
+  .accordion-item::before { left: -1.75rem; }
+  .nav-toggle { display: inline-flex; margin-left: auto; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: var(--shadow-1);
+  }
+
+  .site-header .container.nav { position: relative; flex-wrap: wrap; }
+
+
+  .nav-links.is-open { display: flex; }
+
+  .nav-links a {
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+  }
+
+  .accordion-item summary {
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .exp-meta { grid-column: 1 / -1; }
+
+  .accordion-chevron { grid-row: 1; grid-column: 2; }
+
+  .section-title { grid-template-columns: auto 1fr; }
+  .section-title p { grid-column: 1 / -1; }
+
+  .filters { flex-direction: row; overflow-x: auto; max-width: 100%; }
+
+  h1 { font-size: clamp(3rem, 12vw, 5rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ticker-track { animation: none !important; }
+  .blob { animation: none !important; }
+  .grain { display: none; }
+  .cursor-dot, .cursor-ring { display: none; }
+  h1 .word > span { transform: translateY(0); }
+}
+
+/* View transitions for theme toggle */
+@supports (view-transition-name: root) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) { z-index: 1; }
+  ::view-transition-new(root) { z-index: 2; }
+
+  body[data-theme="dark"]::view-transition-old(root) { z-index: 2; }
+  body[data-theme="dark"]::view-transition-new(root) { z-index: 1; }
+}
+
+/* Scroll-driven animations (progressive enhancement) */
+@supports (animation-timeline: scroll()) {
+  .section-title {
+    animation: title-line linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+
+  @keyframes title-line {
+    from { opacity: 0.5; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--signal);
+  color: var(--text-on-signal);
+}
+
