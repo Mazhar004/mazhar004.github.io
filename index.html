@@ -39,15 +39,36 @@
     <meta name="theme-color" content="#0a0e14" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f1ebe0" media="(prefers-color-scheme: light)" />
 
+    <!-- Progressive enhancement marker. Set synchronously before any CSS applies so
+         scroll-reveal styles know JS is going to run. Without this class, the no-JS
+         fallback block in cinematic.css keeps every section visible (matters for
+         file:// previews and any case where the module bundle fails to load). -->
+    <script>document.documentElement.classList.add("js-reveal");</script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2026-05-10h" />
-    <script defer src="script.js?v=2026-05-10c"></script>
+    <!-- Stylesheets — split for maintainability. Order matters: cascade flows top → bottom. -->
+    <link rel="stylesheet" href="css/tokens.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/base.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/layout.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/buttons.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/bento.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/command-palette.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/sections.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/footer.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/mobile.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/cinematic.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/lanes.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/hero-impact.css?v=2026-05-13i" />
+    <link rel="stylesheet" href="css/mobile-final.css?v=2026-05-13i" />
+
+    <!-- JS as native ES modules. main.js boots each side-effect submodule. -->
+    <script type="module" src="js/main.js?v=2026-05-13i"></script>
 
     <!-- Structured data: Person + WebSite -->
     <script type="application/ld+json">
@@ -284,7 +305,7 @@
       <section class="section" id="profile">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">About</span> <em>the work.</em></h2>
+            <h2><span class="h2-main">About</span> <em>the work</em></h2>
           </div>
           <div class="profile-grid">
             <div data-scroll="up">
@@ -337,7 +358,7 @@
       <section class="section alt" id="experience">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Work</span> <em>history.</em></h2>
+            <h2><span class="h2-main">Work</span> <em>history</em></h2>
           </div>
           <div class="accordion">
             <details class="accordion-item" open>
@@ -452,7 +473,7 @@
       <section class="section" id="education">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Education</span> <em>&amp; foundations.</em></h2>
+            <h2><span class="h2-main">Education</span> <em>&amp; foundations</em></h2>
           </div>
           <div class="grid education-cards" data-stagger data-scroll="up">
             <article class="card education-card">
@@ -496,7 +517,7 @@
               </ul>
               <div class="hero-links">
                 <a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank" rel="noreferrer" data-cursor="hover">
-                  Read paper
+                  Read Paper
                 </a>
               </div>
             </article>
@@ -507,7 +528,7 @@
       <section class="section" id="skills">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Toolkit</span> <em>&amp; stack.</em></h2>
+            <h2><span class="h2-main">Toolkit</span> <em>&amp; stack</em></h2>
           </div>
           <div class="skills-grid" data-stagger data-scroll="up">
             <div class="card">
@@ -562,7 +583,7 @@
       <section class="section alt" id="projects">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Selected</span> <em>projects.</em></h2>
+            <h2><span class="h2-main">Selected</span> <em>projects</em></h2>
           </div>
           <div class="filters" role="tablist" aria-label="Project filters">
             <button class="filter-btn active" type="button" data-filter="all" data-cursor="hover">All</button>
@@ -593,7 +614,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://github.com/Mazhar004/object-detection-api" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View project
+                  View Project
                 </a>
               </div>
             </article>
@@ -607,7 +628,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://prince004.pythonanywhere.com/weblocate" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View app
+                  View App
                 </a>
               </div>
             </article>
@@ -622,7 +643,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://github.com/Mazhar004/scraping" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View repo
+                  View Repo
                 </a>
               </div>
             </article>
@@ -633,7 +654,7 @@
       <section class="section" id="certifications">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Certifications</span> <em>&amp; credentials.</em></h2>
+            <h2><span class="h2-main">Certifications</span> <em>&amp; credentials</em></h2>
           </div>
           <div class="grid cert-grid" data-stagger data-scroll="up">
             <article class="card cert-card">
@@ -643,7 +664,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.secureflag.com/s?f1a679f6-27b1-488a-9493-7cba93e24130" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -656,7 +677,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.coursera.org/account/accomplishments/verify/9ZGFH9U5RJQM?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -685,7 +706,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.coursera.org/account/accomplishments/specialization/FRL8YY38G773" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -698,7 +719,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.coursera.org/account/accomplishments/verify/MENNNZ7DR22Z" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -709,7 +730,7 @@
       <section class="section alt" id="contact">
         <div class="container contact">
           <div data-scroll="up">
-            <h2><span class="h2-main">Let's</span> <em>build something.</em></h2>
+            <h2><span class="h2-main">Let's</span> <em>build something</em></h2>
             <p>
               Open to opportunities in data engineering, analytics &amp; ML
               systems. Collaboration, consulting, or a quick chat about a
