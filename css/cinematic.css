@@ -165,9 +165,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Big cinema name — uses --font-hero (Bricolage Grotesque), not the default --font-display.
-   The user asked to keep "Mazhar Hossain" in its original typography while the rest of
-   the site moved to Inter. */
+/* Hero display uses the same sans stack as the rest of the site; surname accent is italic. */
 .hero-name {
   font-family: var(--font-hero);
   font-weight: 700;

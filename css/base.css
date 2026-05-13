@@ -4,33 +4,33 @@
 
 /* Atmospheric dot pattern with two-layer mask:
      1. Edge frame — dots fade in toward the viewport corners (text stays clear)
-     2. Cursor spotlight — a bright circle that follows the pointer, revealing
+     2. Cursor spotlight — a soft circle that follows the pointer, brightening
         dots in the protected center as the cursor moves over them.
-   JS updates --mx / --my on pointermove. With no cursor activity --mx/--my
-   default off-screen so the spotlight is invisible and only the edge frame
-   shows (mobile, touch, reduced-motion are handled this way too). */
+   JS in interactions.js updates --cursor-x / --cursor-y on pointermove. With
+   no cursor activity the values default off-screen so the spotlight is invisible
+   and only the edge frame shows (mobile, touch, reduced-motion handled this way). */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
     radial-gradient(circle at center, var(--rule-strong) 1.1px, transparent 1.6px);
-  background-size: 24px 24px;
+  background-size: 28px 28px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.85;
+  opacity: 0.55;
   mask-image:
-    radial-gradient(circle 240px at var(--cursor-x, -300px) var(--cursor-y, -300px), black 0%, rgba(0, 0, 0, 0.55) 55%, transparent 100%),
-    radial-gradient(ellipse 75% 60% at center, transparent 30%, black 95%);
+    radial-gradient(circle 260px at var(--cursor-x, -300px) var(--cursor-y, -300px), black 0%, rgba(0, 0, 0, 0.5) 55%, transparent 100%),
+    radial-gradient(ellipse 75% 60% at center, transparent 32%, black 95%);
   -webkit-mask-image:
-    radial-gradient(circle 240px at var(--cursor-x, -300px) var(--cursor-y, -300px), black 0%, rgba(0, 0, 0, 0.55) 55%, transparent 100%),
-    radial-gradient(ellipse 75% 60% at center, transparent 30%, black 95%);
+    radial-gradient(circle 260px at var(--cursor-x, -300px) var(--cursor-y, -300px), black 0%, rgba(0, 0, 0, 0.5) 55%, transparent 100%),
+    radial-gradient(ellipse 75% 60% at center, transparent 32%, black 95%);
   mask-composite: add;
   -webkit-mask-composite: source-over;
 }
 
 body[data-theme="dark"]::before {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .grain {

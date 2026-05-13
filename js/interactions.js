@@ -83,8 +83,6 @@ if (!prefersReducedMotion && hoverCapable) {
     });
   }, { passive: true });
 
-  /* When pointer leaves the window, park the spotlight off-screen so it
-     disappears instead of getting stuck wherever the cursor was. */
   window.addEventListener("pointerleave", () => {
     root.style.setProperty("--cursor-x", "-300px");
     root.style.setProperty("--cursor-y", "-300px");

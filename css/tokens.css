@@ -22,8 +22,8 @@
   --paper: #fbf6ec;
   --rule: rgba(26, 20, 17, 0.14);
   --rule-strong: rgba(26, 20, 17, 0.34);
-  --muted: #3a332e;
-  --soft: #574e44;
+  --muted: #322c27;
+  --soft: #4d453d;
 
   --signal: #e85d3e;        /* refined warm coral */
   --signal-deep: #c9421f;
@@ -39,20 +39,15 @@
   --surface: var(--paper);
   --text: var(--ink);
 
-  /* Everything is Inter (conventional) except the hero name "Mazhar Hossain.", which
-     keeps its original typography. JetBrains Mono stays for labels/code.
-       --font-display       Inter                  default for headings, section titles, large display text
-       --font-body          Inter                  paragraphs and general text
-       --font-serif         Inter                  italic emphasis (formerly Fraunces, kept as the variable name for compat)
-       --font-hero          Bricolage Grotesque    "Mazhar" only
-       --font-hero-italic   Fraunces               "Hossain." accent only
-       --font-mono          JetBrains Mono         labels, ticker, code */
-  --font-display:     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-body:        "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-serif:       "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-hero:        "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --font-hero-italic: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-mono:        "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* IBM Plex: technical, readable; Sans for UI, Mono for labels (paired family). */
+  --font-sans-stack: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-display:     var(--font-sans-stack);
+  --font-body:        var(--font-sans-stack);
+  --font-serif:       var(--font-sans-stack);
+  --font-sans:        var(--font-body);
+  --font-hero:        var(--font-sans-stack);
+  --font-hero-italic: var(--font-sans-stack);
+  --font-mono:        "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 
   --radius-sm: 6px;
   --radius-md: 14px;
@@ -77,8 +72,8 @@ body[data-theme="dark"] {
   --paper: #0e1320;
   --rule: rgba(244, 239, 228, 0.18);
   --rule-strong: rgba(244, 239, 228, 0.42);
-  --muted: #ddd6c5;
-  --soft: #c6bda8;
+  --muted: #eee6d3;
+  --soft: #d8ceb7;
   --signal: #ff7a5c;
   --signal-deep: #ff9a82;
   --signal-soft: #ffc4ad;
@@ -101,10 +96,16 @@ body {
   font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.55;
-  font-feature-settings: "ss01", "cv11", "calt";
+  font-size: 16.5px;
+  line-height: 1.62;
+  font-weight: 400;
+  font-feature-settings: "kern" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+body[data-theme="dark"] {
+  font-weight: 420;
 }
 

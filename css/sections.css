@@ -628,11 +628,36 @@ main ul { list-style: none; padding-left: 0; margin: 0; }
   position: relative;
 }
 
-/* Hash prefix removed per the cleaner keyword-chip style. Hover state
-   uses ::before for an underline accent instead. */
+/* Base tags are plain metadata. Project/cert cards refine this into
+   comma-separated inline text below. */
 .tags span::before {
   content: "";
   display: none;
+}
+
+.project-card .tags,
+.cert-card .tags {
+  gap: 0;
+  align-items: baseline;
+  line-height: 1.55;
+}
+
+.project-card .tags span,
+.cert-card .tags span {
+  display: inline;
+  margin-right: 0.35rem;
+}
+
+.project-card .tags span::before {
+  content: "#";
+  display: inline;
+  color: var(--signal);
+}
+
+.project-card .tags span:not(:last-child)::after,
+.cert-card .tags span:not(:last-child)::after {
+  content: ",";
+  color: var(--muted);
 }
 
 .tags span:hover {

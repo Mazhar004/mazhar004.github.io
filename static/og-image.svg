@@ -23,21 +23,21 @@
   </g>
 
   <!-- Eyebrow label -->
-  <text x="80" y="155" font-family="'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" fill="#ff7a5c" letter-spacing="4">PORTFOLIO · 2026</text>
+  <text x="80" y="155" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" fill="#ff7a5c" letter-spacing="4">PORTFOLIO · 2026</text>
 
   <!-- Name -->
-  <text x="80" y="290" font-family="'Bricolage Grotesque', -apple-system, system-ui, sans-serif" font-size="108" font-weight="700" fill="#f4efe4" letter-spacing="-3">Mazhar</text>
-  <text x="80" y="405" font-family="'Fraunces', 'Times New Roman', serif" font-size="108" font-weight="600" font-style="italic" fill="#ff7a5c" letter-spacing="-2">Hossain.</text>
+  <text x="80" y="290" font-family="'IBM Plex Sans', system-ui, sans-serif" font-size="108" font-weight="700" fill="#f4efe4" letter-spacing="-3">Mazhar</text>
+  <text x="80" y="405" font-family="'IBM Plex Sans', system-ui, sans-serif" font-size="108" font-weight="600" font-style="italic" fill="#ff7a5c" letter-spacing="-2">Hossain.</text>
 
   <!-- Role -->
-  <text x="80" y="470" font-family="'Inter Tight', system-ui, sans-serif" font-size="28" fill="#e3dcc9" font-weight="500">Data Engineer · Python · ML Systems</text>
+  <text x="80" y="470" font-family="'IBM Plex Sans', system-ui, sans-serif" font-size="28" fill="#e3dcc9" font-weight="500">Data Engineer · Python · ML Systems</text>
 
   <!-- Bottom meta -->
-  <text x="80" y="575" font-family="'JetBrains Mono', monospace" font-size="18" fill="#7c736a" letter-spacing="2">mazhar004.github.io</text>
+  <text x="80" y="575" font-family="'IBM Plex Mono', monospace" font-size="18" fill="#7c736a" letter-spacing="2">mazhar004.github.io</text>
 
   <!-- Corner mark -->
   <g transform="translate(1040, 525)">
     <rect x="0" y="0" width="80" height="80" rx="16" fill="#ff7a5c"/>
-    <text x="40" y="55" font-family="'Bricolage Grotesque', sans-serif" font-size="38" font-weight="700" text-anchor="middle" fill="#0a0e14">MH</text>
+    <text x="40" y="55" font-family="'IBM Plex Sans', system-ui, sans-serif" font-size="38" font-weight="700" text-anchor="middle" fill="#0a0e14">MH</text>
   </g>
 </svg>
