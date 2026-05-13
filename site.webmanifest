@@ -1,0 +1,18 @@
+{
+  "name": "Mazhar Hossain — Data Engineer",
+  "short_name": "Mazhar / MH",
+  "description": "Portfolio of Mazhar Hossain — Data Engineer building reliable data platforms, ETL pipelines and ML-ready analytics systems.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0e14",
+  "theme_color": "#0a0e14",
+  "icons": [
+    {
+      "src": "/static/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

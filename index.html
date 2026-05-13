@@ -3,27 +3,151 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mazhar Hossain — Data Engineer</title>
-    <meta
-      name="description"
-      content="Mazhar Hossain — Data Engineer building reliable data platforms, ETL pipelines & ML-ready analytics systems."
-    />
-    <meta property="og:title" content="Mazhar Hossain — Data Engineer" />
-    <meta
-      property="og:description"
-      content="Reliable data platforms, ETL pipelines & ML-ready analytics systems."
-    />
+
+    <!-- Primary SEO -->
+    <title>Mazhar Hossain — Data Engineer · Python · ML Systems</title>
+    <meta name="description" content="Mazhar Hossain — Data Engineer with 6+ years building reliable data platforms, ETL pipelines, and ML-ready analytics systems. Python, PostgreSQL, Airflow, PyTorch." />
+    <meta name="author" content="Mazhar Hossain" />
+    <meta name="keywords" content="Mazhar Hossain, Data Engineer, Python Developer, ETL, Airflow, PostgreSQL, PyTorch, ML Engineer, Data Platforms, Portfolio" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://mazhar004.github.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mazhar Hossain — Data Engineer · Python · ML Systems" />
+    <meta property="og:description" content="6+ years building reliable data platforms, ETL pipelines, and ML-ready analytics systems." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mazhar004.github.io/" />
-    <meta name="theme-color" content="#0c0b09" />
+    <meta property="og:site_name" content="Mazhar Hossain" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://mazhar004.github.io/static/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mazhar Hossain — Data Engineer · Python · ML Systems" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mazhar Hossain — Data Engineer" />
+    <meta name="twitter:description" content="Building reliable data platforms, ETL pipelines, and ML-ready analytics systems." />
+    <meta name="twitter:image" content="https://mazhar004.github.io/static/og-image.svg" />
+    <meta name="twitter:image:alt" content="Mazhar Hossain — Data Engineer · Python · ML Systems" />
+
+    <!-- Icons & manifest -->
+    <link rel="icon" type="image/svg+xml" href="static/favicon.svg" />
+    <link rel="apple-touch-icon" href="static/favicon.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#0a0e14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f1ebe0" media="(prefers-color-scheme: light)" />
+
+    <!-- Progressive enhancement marker. Set synchronously before any CSS applies so
+         scroll-reveal styles know JS is going to run. Without this class, the no-JS
+         fallback block in cinematic.css keeps every section visible (matters for
+         file:// previews and any case where the module bundle fails to load). -->
+    <script>document.documentElement.classList.add("js-reveal");</script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,30..100,0..1;1,9..144,300..700,30..100,0..1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2026-05-10h" />
-    <script defer src="script.js?v=2026-05-10c"></script>
+    <!-- Stylesheets — split for maintainability. Order matters: cascade flows top → bottom. -->
+    <link rel="stylesheet" href="css/tokens.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/base.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/layout.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/buttons.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/bento.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/command-palette.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/sections.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/footer.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/mobile.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/cinematic.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/lanes.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/hero-impact.css?v=2026-05-13k" />
+    <link rel="stylesheet" href="css/mobile-final.css?v=2026-05-13k" />
+
+    <!-- JS as native ES modules. main.js boots each side-effect submodule. -->
+    <script type="module" src="js/main.js?v=2026-05-13k"></script>
+
+    <!-- Structured data: Person + WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://mazhar004.github.io/#person",
+          "name": "Mazhar Hossain",
+          "alternateName": "MH",
+          "url": "https://mazhar004.github.io/",
+          "image": "https://mazhar004.github.io/static/og-image.svg",
+          "jobTitle": "Data Engineer",
+          "description": "Data Engineer with 6+ years across data pipelines, ML systems, and production APIs. Focused on data quality, observability, and scalable ingestion frameworks.",
+          "email": "mailto:princemazhar.mp@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Milwaukee",
+            "addressRegion": "WI",
+            "addressCountry": "US"
+          },
+          "knowsAbout": [
+            "Data Engineering",
+            "Python",
+            "PostgreSQL",
+            "Apache Airflow",
+            "ETL Pipelines",
+            "PyTorch",
+            "Machine Learning",
+            "Computer Vision",
+            "REST APIs",
+            "Docker"
+          ],
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Marquette University",
+              "url": "https://www.marquette.edu/"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Khulna University of Engineering & Technology"
+            }
+          ],
+          "sameAs": [
+            "https://github.com/mazhar004",
+            "https://www.linkedin.com/in/mazhar004/",
+            "https://stackoverflow.com/users/11755018/mazhar",
+            "https://scholar.google.com/citations?user=k7h0b8gAAAAJ",
+            "https://orcid.org/0000-0001-7118-8248",
+            "https://www.researchgate.net/profile/Mazhar-Hossain"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mazhar004.github.io/#website",
+          "url": "https://mazhar004.github.io/",
+          "name": "Mazhar Hossain — Portfolio",
+          "description": "Portfolio of Mazhar Hossain, Data Engineer.",
+          "inLanguage": "en-US",
+          "publisher": { "@id": "https://mazhar004.github.io/#person" }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics 4
+         Replace G-XXXXXXXXXX with your real Measurement ID once you create the GA4 property.
+         Until then, this script is inert (no data is sent). The ID is intentionally public —
+         GA4 IDs live in client-side JS on every site that uses GA. To prevent spam from other
+         domains, configure a hostname filter in GA4 Admin → Data Filters. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PX2HPTTXRF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PX2HPTTXRF', { anonymize_ip: true });
+    </script>
   </head>
   <body data-theme="dark">
     <script>
@@ -181,7 +305,7 @@
       <section class="section" id="profile">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">About</span> <em>the work.</em></h2>
+            <h2><span class="h2-main">About</span> <em>the work</em></h2>
           </div>
           <div class="profile-grid">
             <div data-scroll="up">
@@ -234,7 +358,7 @@
       <section class="section alt" id="experience">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Work</span> <em>history.</em></h2>
+            <h2><span class="h2-main">Work</span> <em>history</em></h2>
           </div>
           <div class="accordion">
             <details class="accordion-item" open>
@@ -349,7 +473,7 @@
       <section class="section" id="education">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Education</span> <em>&amp; foundations.</em></h2>
+            <h2><span class="h2-main">Education</span> <em>&amp; foundations</em></h2>
           </div>
           <div class="grid education-cards" data-stagger data-scroll="up">
             <article class="card education-card">
@@ -393,7 +517,7 @@
               </ul>
               <div class="hero-links">
                 <a href="https://www.sciencedirect.com/science/article/pii/S1110866519301720" target="_blank" rel="noreferrer" data-cursor="hover">
-                  Read paper
+                  Read Paper
                 </a>
               </div>
             </article>
@@ -404,7 +528,7 @@
       <section class="section" id="skills">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Toolkit</span> <em>&amp; stack.</em></h2>
+            <h2><span class="h2-main">Toolkit</span> <em>&amp; stack</em></h2>
           </div>
           <div class="skills-grid" data-stagger data-scroll="up">
             <div class="card">
@@ -459,7 +583,7 @@
       <section class="section alt" id="projects">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Selected</span> <em>projects.</em></h2>
+            <h2><span class="h2-main">Selected</span> <em>projects</em></h2>
           </div>
           <div class="filters" role="tablist" aria-label="Project filters">
             <button class="filter-btn active" type="button" data-filter="all" data-cursor="hover">All</button>
@@ -490,7 +614,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://github.com/Mazhar004/object-detection-api" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View project
+                  View Project
                 </a>
               </div>
             </article>
@@ -504,7 +628,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://prince004.pythonanywhere.com/weblocate" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View app
+                  View App
                 </a>
               </div>
             </article>
@@ -519,7 +643,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://github.com/Mazhar004/scraping" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View repo
+                  View Repo
                 </a>
               </div>
             </article>
@@ -530,7 +654,7 @@
       <section class="section" id="certifications">
         <div class="container">
           <div class="section-title" data-scroll="up">
-            <h2><span class="h2-main">Certifications</span> <em>&amp; credentials.</em></h2>
+            <h2><span class="h2-main">Certifications</span> <em>&amp; credentials</em></h2>
           </div>
           <div class="grid cert-grid" data-stagger data-scroll="up">
             <article class="card cert-card">
@@ -540,7 +664,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.secureflag.com/s?f1a679f6-27b1-488a-9493-7cba93e24130" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -553,7 +677,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.coursera.org/account/accomplishments/verify/9ZGFH9U5RJQM?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=pdf_header_button&utm_product=course" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -582,7 +706,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.coursera.org/account/accomplishments/specialization/FRL8YY38G773" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -595,7 +719,7 @@
               </div>
               <div class="hero-links">
                 <a href="https://www.coursera.org/account/accomplishments/verify/MENNNZ7DR22Z" target="_blank" rel="noreferrer" data-cursor="hover">
-                  View certificate
+                  View Certificate
                 </a>
               </div>
             </article>
@@ -606,7 +730,7 @@
       <section class="section alt" id="contact">
         <div class="container contact">
           <div data-scroll="up">
-            <h2><span class="h2-main">Let's</span> <em>build something.</em></h2>
+            <h2><span class="h2-main">Let's</span> <em>build something</em></h2>
             <p>
               Open to opportunities in data engineering, analytics &amp; ML
               systems. Collaboration, consulting, or a quick chat about a

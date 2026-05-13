@@ -1,0 +1,111 @@
+/* ============================================================
+   Editorial Engineering — Mazhar Hossain Portfolio
+   Aesthetic: Swiss editorial × terminal × bone-warm palette
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Palette — warmer, more refined */
+  --bone: #f1ebe0;
+  --bone-2: #e6dfd1;
+  --ink: #1a1411;
+  --ink-2: #2a221d;
+  --paper: #fbf6ec;
+  --rule: rgba(26, 20, 17, 0.14);
+  --rule-strong: rgba(26, 20, 17, 0.34);
+  --muted: #322c27;
+  --soft: #4d453d;
+
+  --signal: #e85d3e;        /* refined warm coral */
+  --signal-deep: #c9421f;
+  --signal-soft: #f4a584;
+  --mint: #5cc89a;          /* secondary mint */
+  --plum: #8b5cf6;
+  --accent: var(--signal);
+
+  /* Text color when used on top of a signal-coral fill. Stays the same in both themes. */
+  --text-on-signal: #fbf6ec;
+
+  --bg: var(--bone);
+  --surface: var(--paper);
+  --text: var(--ink);
+
+  /* IBM Plex: technical, readable; Sans for UI, Mono for labels (paired family). */
+  --font-sans-stack: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-display:     var(--font-sans-stack);
+  --font-body:        var(--font-sans-stack);
+  --font-serif:       var(--font-sans-stack);
+  --font-sans:        var(--font-body);
+  --font-hero:        var(--font-sans-stack);
+  --font-hero-italic: var(--font-sans-stack);
+  --font-mono:        "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-1: 0 1px 0 rgba(10, 10, 10, 0.06), 0 12px 30px rgba(10, 10, 10, 0.06);
+  --shadow-2: 0 1px 0 rgba(10, 10, 10, 0.08), 0 24px 60px rgba(10, 10, 10, 0.10);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+
+  --container: min(1320px, 92vw);
+}
+
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --bone: #0a0e14;
+  --bone-2: #131822;
+  --ink: #f4efe4;
+  --ink-2: #e3dcc9;
+  --paper: #0e1320;
+  --rule: rgba(244, 239, 228, 0.18);
+  --rule-strong: rgba(244, 239, 228, 0.42);
+  --muted: #eee6d3;
+  --soft: #d8ceb7;
+  --signal: #ff7a5c;
+  --signal-deep: #ff9a82;
+  --signal-soft: #ffc4ad;
+  --mint: #6ee7b7;
+  --plum: #a78bfa;
+
+  --bg: var(--bone);
+  --surface: var(--paper);
+  --text: var(--ink);
+
+  --shadow-1: 0 1px 0 rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.45);
+  --shadow-2: 0 1px 0 rgba(0, 0, 0, 0.5), 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16.5px;
+  line-height: 1.62;
+  font-weight: 400;
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body[data-theme="dark"] {
+  font-weight: 420;
+}
+

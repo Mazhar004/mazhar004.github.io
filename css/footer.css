@@ -1,0 +1,176 @@
+/* ============================================================
+   Contact
+   ============================================================ */
+
+.contact {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .contact {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+}
+
+.contact h2 {
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+
+.contact h2 em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+.contact > div:first-child p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 32rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card {
+  display: grid;
+  gap: 0.6rem;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: "→ available";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-card .btn {
+  justify-content: space-between;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.site-footer {
+  padding: 3rem 0 4rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Back to top */
+.to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  border: 1px solid var(--rule-strong);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s linear, background 0.3s linear, color 0.3s linear, transform 0.3s var(--ease-spring);
+  z-index: 40;
+}
+
+.to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.to-top:hover {
+  background: var(--signal);
+  color: var(--text-on-signal);
+  border-color: var(--signal);
+  transform: translateY(-4px);
+}
+
+/* ============================================================
+   Reveal animations
+   ============================================================ */
+
+/* legacy .reveal class — removed; use [data-scroll] instead. */
+.__reveal-legacy {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+  transition-delay: var(--stagger, 0s);
+  will-change: transform, opacity;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Click ripple
+   ============================================================ */
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 77, 31, 0.35);
+  transform: scale(0);
+  animation: ripple 0.7s var(--ease-out);
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ============================================================
+   Section number marquee labels
+   ============================================================ */
+
+.section-marker {
+  position: absolute;
+  top: -1.4rem;
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--rule-strong);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
