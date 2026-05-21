@@ -1,0 +1,144 @@
+/* ============================================================
+   Refresh — Hover Effects (Tags/Pills/Badges + Cards)
+   Loaded LAST. Theme-aware via tokens (light + dark).
+   Enhances existing hovers in sections/lanes/cinematic rather
+   than fighting them; accent = coral --signal/--accent.
+   Motion is gated behind prefers-reduced-motion: no-preference
+   to match the project's accessibility pattern.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   (A) TAGS / PILLS / BADGES — small chips
+   Subtle accent tint + border shift + text deepen.
+   These chips are non-interactive <span>s, so no cursor change.
+   ------------------------------------------------------------ */
+
+/* Round pills: profile pills + "also fluent in" pill grid.
+   Match cinematic.css specificity (.pill-grid span / single class)
+   and override its ink-fill hover with a lighter accent treatment. */
+.profile-pills span:hover,
+.pill-grid span:hover {
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--rule));
+  color: var(--ink);
+  transition: background 0.18s var(--ease-out),
+              border-color 0.18s var(--ease-out),
+              color 0.18s var(--ease-out),
+              transform 0.18s var(--ease-out),
+              box-shadow 0.18s var(--ease-out);
+}
+
+/* Square-ish badges: education + stat/profile metric badges. */
+.edu-badge:hover,
+.stat-badge:hover {
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--rule));
+  color: var(--ink);
+  transition: background 0.18s var(--ease-out),
+              border-color 0.18s var(--ease-out),
+              color 0.18s var(--ease-out),
+              transform 0.18s var(--ease-out),
+              box-shadow 0.18s var(--ease-out);
+}
+
+/* Inline metadata tags (.tags span) are comma-separated running
+   text inside cards — lifting them would break the line. Keep the
+   existing color-only treatment but warm it consistently. */
+.tags span:hover {
+  color: var(--ink);
+  transition: color 0.18s var(--ease-out);
+}
+.project-card .tags span:hover::before,
+.cert-card .tags span:hover::before,
+.tags span:hover::before {
+  color: var(--accent);
+}
+
+/* Motion layer for chips — only when motion is welcome. */
+@media (prefers-reduced-motion: no-preference) {
+  .profile-pills span:hover,
+  .pill-grid span:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 14px -8px color-mix(in oklab, var(--accent) 50%, transparent);
+  }
+
+  .edu-badge:hover,
+  .stat-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -8px color-mix(in oklab, var(--accent) 45%, transparent);
+  }
+}
+
+/* ------------------------------------------------------------
+   (B) CARD BACKGROUNDS — elevated surfaces
+   Lift + accent-tinted border + soft coral glow.
+   Color/border changes are always on; transform + glow are
+   gated behind prefers-reduced-motion: no-preference.
+   ------------------------------------------------------------ */
+
+/* Base + project cards. cinematic.css forces transform:none /
+   box-shadow:none on .project-card:hover and tints the bg; match
+   that single-class specificity to reinstate a refined lift. */
+.card:hover,
+.project-card:hover {
+  border-color: color-mix(in oklab, var(--accent) 32%, var(--rule-strong));
+}
+
+/* Education + publication + certification cards (defined in
+   cinematic.css with ID / .cert-card specificity — mirror it). */
+.education-card:hover,
+#publications .card:hover,
+#certifications .card:hover,
+.cert-card:hover {
+  border-color: color-mix(in oklab, var(--accent) 32%, var(--rule-strong));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover,
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px -26px color-mix(in oklab, var(--accent) 42%, transparent);
+    transition: transform 0.25s var(--ease-out),
+                border-color 0.25s var(--ease-out),
+                box-shadow 0.25s var(--ease-out);
+  }
+
+  .education-card:hover,
+  #publications .card:hover,
+  #certifications .card:hover,
+  .cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px -26px color-mix(in oklab, var(--accent) 42%, transparent);
+    transition: transform 0.25s var(--ease-out),
+                border-color 0.25s var(--ease-out),
+                box-shadow 0.25s var(--ease-out);
+  }
+
+  /* Don't add lift/glow to the "card" variants that the site
+     intentionally keeps flat (stat numbers row + skills grid). */
+  .stats .card:hover,
+  .skills-grid .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Touch / coarse pointers: drop transform + glow (keep color),
+   consistent with the existing (hover:none) gate in cinematic.css.
+   ------------------------------------------------------------ */
+@media (hover: none), (pointer: coarse) {
+  .profile-pills span:hover,
+  .pill-grid span:hover,
+  .edu-badge:hover,
+  .stat-badge:hover,
+  .card:hover,
+  .project-card:hover,
+  .education-card:hover,
+  #publications .card:hover,
+  #certifications .card:hover,
+  .cert-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
