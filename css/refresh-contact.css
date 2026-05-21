@@ -10,10 +10,6 @@
   gap: 14px;
 }
 
-.contact-tile--wide {
-  grid-column: 1 / -1;
-}
-
 /* --- Tile shell: glass card ------------------------------------ */
 .contact-tile {
   display: flex;

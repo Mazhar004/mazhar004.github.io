@@ -25,21 +25,24 @@
   --muted: #322c27;
   --soft: #4d453d;
 
-  --signal: #e85d3e;        /* refined warm coral */
-  --signal-deep: #c9421f;
-  --signal-soft: #f4a584;
-  --mint: #5cc89a;          /* secondary mint */
-  --plum: #8b5cf6;
+  --signal: #3b82f6;        /* primary — blue (ported from new UI) */
+  --signal-deep: #2563eb;
+  --signal-soft: #93c5fd;
+  --mint: #10b981;          /* success / available — emerald */
+  --cyan: #06b6d4;          /* tertiary accent — cyan */
+  --plum: #8b5cf6;          /* secondary accent — violet */
   --accent: var(--signal);
 
-  /* Text color when used on top of a signal-coral fill. Stays the same in both themes. */
-  --text-on-signal: #fbf6ec;
+  /* Text color when used on top of an accent fill. Stays the same in both themes. */
+  --text-on-signal: #ffffff;
 
   --bg: var(--bone);
   --surface: var(--paper);
   --text: var(--ink);
 
-  /* Inter for UI/display, JetBrains Mono for code/labels (ported from new UI). */
+  /* Inter everywhere to match the new UI. Labels/eyebrows that use --font-mono
+     keep their uppercase + letter-spacing, which reads like the new UI's eyebrows.
+     True monospace (brand logo, code) uses --font-code (JetBrains Mono). */
   --font-sans-stack: "Inter", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
   --font-display:     var(--font-sans-stack);
   --font-body:        var(--font-sans-stack);
@@ -47,7 +50,8 @@
   --font-sans:        var(--font-body);
   --font-hero:        var(--font-sans-stack);
   --font-hero-italic: var(--font-sans-stack);
-  --font-mono:        "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-mono:        var(--font-sans-stack);
+  --font-code:        "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 
   --radius-sm: 6px;
   --radius-md: 14px;
@@ -65,19 +69,20 @@
 
 body[data-theme="dark"] {
   color-scheme: dark;
-  --bone: #0a0e14;
-  --bone-2: #131822;
+  --bone: #12161f;
+  --bone-2: #1b212c;
   --ink: #f4efe4;
   --ink-2: #e3dcc9;
-  --paper: #0e1320;
+  --paper: #1a202b;
   --rule: rgba(244, 239, 228, 0.18);
   --rule-strong: rgba(244, 239, 228, 0.42);
   --muted: #eee6d3;
   --soft: #d8ceb7;
-  --signal: #ff7a5c;
-  --signal-deep: #ff9a82;
-  --signal-soft: #ffc4ad;
-  --mint: #6ee7b7;
+  --signal: #60a5fa;
+  --signal-deep: #93c5fd;
+  --signal-soft: #bfdbfe;
+  --mint: #34d399;
+  --cyan: #22d3ee;
   --plum: #a78bfa;
 
   --bg: var(--bone);

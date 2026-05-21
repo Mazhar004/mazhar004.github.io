@@ -40,7 +40,7 @@
 
 /* ---- Brand (keep the pulse dot, fit it to the pill) -------- */
 .site-header .brand {
-  font-family: var(--font-mono);
+  font-family: var(--font-code);
   font-weight: 500;
   font-size: 0.9rem;
   letter-spacing: 0.01em;

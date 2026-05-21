@@ -18,7 +18,7 @@ body::before {
   background-size: 28px 28px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.3;
   mask-image:
     radial-gradient(circle 260px at var(--cursor-x, -300px) var(--cursor-y, -300px), black 0%, rgba(0, 0, 0, 0.5) 55%, transparent 100%),
     radial-gradient(ellipse 75% 60% at center, transparent 32%, black 95%);
@@ -30,7 +30,50 @@ body::before {
 }
 
 body[data-theme="dark"]::before {
-  opacity: 0.7;
+  opacity: 0.4;
+}
+
+/* Background atmosphere — three soft accent glows (blue / violet / cyan)
+   fixed behind content, echoing the new UI's colorful backdrop. The moving
+   "magnetic" spotlight is a separate overlay (.cursor-glow) above content. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(720px 520px at 12% -8%,
+      color-mix(in oklab, var(--signal) 12%, transparent), transparent 60%),
+    radial-gradient(720px 520px at 92% 6%,
+      color-mix(in oklab, var(--plum) 10%, transparent), transparent 60%),
+    radial-gradient(900px 620px at 50% 116%,
+      color-mix(in oklab, var(--cyan) 8%, transparent), transparent 60%);
+}
+
+body[data-theme="dark"]::after {
+  background:
+    radial-gradient(720px 520px at 12% -8%,
+      color-mix(in oklab, var(--signal) 22%, transparent), transparent 60%),
+    radial-gradient(720px 520px at 92% 6%,
+      color-mix(in oklab, var(--plum) 18%, transparent), transparent 60%),
+    radial-gradient(900px 620px at 50% 116%,
+      color-mix(in oklab, var(--cyan) 12%, transparent), transparent 60%);
+}
+
+/* Magnetic arrow field — a full-viewport canvas of small arrows that rotate
+   to point toward the cursor (drawn in arrow-field.js). Sits behind content
+   (z 0) like the new UI. Skipped entirely on touch / reduced-motion in JS. */
+.arrow-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+body[data-theme="dark"] .arrow-field {
+  opacity: 0.92;
 }
 
 .grain {
