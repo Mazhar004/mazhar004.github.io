@@ -48,8 +48,8 @@
   --font-body:        var(--font-sans-stack);
   --font-serif:       var(--font-sans-stack);
   --font-sans:        var(--font-body);
-  --font-hero:        var(--font-sans-stack);
-  --font-hero-italic: var(--font-sans-stack);
+  --font-hero:        "Bricolage Grotesque", var(--font-sans-stack);
+  --font-hero-italic: "Bricolage Grotesque", var(--font-sans-stack);
   --font-mono:        var(--font-sans-stack);
   --font-code:        "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 

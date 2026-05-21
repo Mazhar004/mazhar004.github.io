@@ -165,16 +165,16 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero display uses the same sans stack as the rest of the site; surname accent is italic. */
+/* Hero display: Bricolage Grotesque, surname in a solid accent (two-tone). */
 .hero-name {
   font-family: var(--font-hero);
-  font-weight: 700;
-  font-size: clamp(3.6rem, 12vw, 11rem);
-  line-height: 0.88;
-  letter-spacing: -0.05em;
+  font-weight: 800;
+  font-size: clamp(3.4rem, 11vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   color: var(--ink);
   margin: 0;
-  font-variation-settings: "wdth" 100, "opsz" 96;
+  font-variation-settings: "opsz" 96;
   text-transform: none;
   position: relative;
 }
@@ -194,35 +194,9 @@ body {
 .hero-name .h-line:nth-child(1) > span { animation-delay: 0.25s; }
 .hero-name .h-line:nth-child(2) > span { animation-delay: 0.42s; }
 
+/* Surname in solid accent — two-tone with the ink first name (design B). */
 .hero-name .accent {
-  background: linear-gradient(110deg, var(--signal) 0%, var(--plum) 42%, var(--cyan) 70%, var(--signal) 100%);
-  background-size: 100% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-style: italic;
-  font-family: var(--font-hero-italic);
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-weight: 500;
-  filter: drop-shadow(0 6px 28px color-mix(in oklab, var(--plum) 28%, transparent));
-  transition: filter 0.5s var(--ease-out);
-}
-
-/* Unique name treatment — first name carries a cool ink→accent sheen, the
-   surname flows a blue→violet→cyan gradient + soft glow that blooms on hover. */
-.hero-name .h-line:first-child > span {
-  background: linear-gradient(
-    180deg,
-    var(--ink) 46%,
-    color-mix(in oklab, var(--ink) 55%, var(--signal)) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-name:hover .accent {
-  filter: drop-shadow(0 10px 40px color-mix(in oklab, var(--plum) 46%, transparent));
+  color: var(--signal);
 }
 
 @keyframes hero-reveal {
