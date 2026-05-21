@@ -1,0 +1,181 @@
+/* ============================================================
+   refresh-nav.css — Floating pill navbar
+   ------------------------------------------------------------
+   Converts the full-width sticky .site-header into a detached,
+   centered, blurred "pill" that floats over the content.
+   Theme-aware via tokens.css vars (works in light + dark).
+   Loaded LAST (after cinematic/lanes/mobile-final), so it wins
+   the cascade; selectors are scoped under .site-header to
+   match-or-exceed existing specificity.
+   Compatible with js/nav.js: .nav-toggle toggles .is-open on
+   .nav-links; scroll-spy adds .active to the current link.
+   ============================================================ */
+
+/* ---- The floating pill ------------------------------------ */
+.site-header {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: min(1180px, calc(100% - 28px));
+  border-radius: 16px;
+  background: color-mix(in oklab, var(--paper) 72%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-1);
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+/* Inner row must fill the pill, not the page container width. */
+.site-header .container.nav {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 6px 8px 6px 14px;
+  gap: 0.75rem;
+}
+
+/* ---- Brand (keep the pulse dot, fit it to the pill) -------- */
+.site-header .brand {
+  font-family: var(--font-code);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.site-header .brand::before {
+  width: 6px;
+  height: 6px;
+  background: var(--signal);
+  /* ring uses the pill surface so the dot reads cleanly in both themes */
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--paper) 72%, transparent),
+    0 0 12px var(--signal);
+}
+
+/* ---- Links ------------------------------------------------- */
+.site-header .nav-links {
+  gap: 0.1rem;
+}
+
+.site-header .nav-links a {
+  font: 500 13px/1 var(--font-body);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+  transition: color 0.18s var(--ease-out), background 0.18s var(--ease-out);
+}
+
+.site-header .nav-links a:hover {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--ink) 8%, transparent);
+}
+
+.site-header .nav-links a.active {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--ink) 11%, transparent);
+}
+
+/* Kill the cinematic underline pseudo-elements inside the pill. */
+.site-header .nav-links a::before,
+.site-header .nav-links a::after {
+  display: none;
+}
+
+/* ---- Theme toggle inside the pill ------------------------- */
+.site-header .theme-toggle {
+  width: 38px;
+  height: 38px;
+}
+
+/* ============================================================
+   Content offset — header is now out of flow (position:fixed),
+   so in-page anchors and the hero must clear the pill.
+   ============================================================ */
+html {
+  scroll-padding-top: 96px;
+}
+
+/* Hero base top padding is ~1.5rem (bento.css) — far under the
+   pill. Bump it so hero content clears the floating nav on load
+   without disturbing the hero grid/min-height. */
+.hero#top {
+  padding-top: 96px;
+}
+
+/* ============================================================
+   MOBILE — reuse the nav breakpoint from mobile.css (880px)
+   ============================================================ */
+@media (max-width: 880px) {
+  /* Pill stays floating, goes near-full-width. */
+  .site-header {
+    top: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .site-header .container.nav {
+    /* keep relative so the dropdown can anchor to the pill */
+    position: relative;
+    flex-wrap: nowrap;
+    padding: 6px 8px 6px 14px;
+  }
+
+  /* Brand + hamburger + theme-toggle stay visible in the pill. */
+  .site-header .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Closed = hidden. Open = floating dropdown panel under pill. */
+  .site-header .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 8px;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    background: color-mix(in oklab, var(--paper) 72%, transparent);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: var(--shadow-1);
+  }
+
+  .site-header .nav-links.is-open {
+    display: flex;
+  }
+
+  /* Comfortable, readable tap targets (>=44px) in both themes. */
+  .site-header .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   Reduced motion — kill the brand pulse + pill transitions.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .site-header .brand::before {
+    animation: none;
+  }
+
+  .site-header,
+  .site-header .nav-links a {
+    transition: none;
+  }
+}

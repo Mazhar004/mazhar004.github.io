@@ -165,16 +165,16 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero display uses the same sans stack as the rest of the site; surname accent is italic. */
+/* Hero display: Bricolage Grotesque, surname in a solid accent (two-tone). */
 .hero-name {
   font-family: var(--font-hero);
-  font-weight: 700;
-  font-size: clamp(3.6rem, 12vw, 11rem);
-  line-height: 0.88;
-  letter-spacing: -0.05em;
+  font-weight: 800;
+  font-size: clamp(3.4rem, 11vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   color: var(--ink);
   margin: 0;
-  font-variation-settings: "wdth" 100, "opsz" 96;
+  font-variation-settings: "opsz" 96;
   text-transform: none;
   position: relative;
 }
@@ -194,17 +194,9 @@ body {
 .hero-name .h-line:nth-child(1) > span { animation-delay: 0.25s; }
 .hero-name .h-line:nth-child(2) > span { animation-delay: 0.42s; }
 
+/* Surname in solid accent — two-tone with the ink first name (design B). */
 .hero-name .accent {
-  background: linear-gradient(120deg, var(--signal) 0%, var(--signal-soft) 50%, var(--signal) 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-style: italic;
-  font-family: var(--font-hero-italic);
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-weight: 500;
-  animation: gradient-shift 8s ease-in-out infinite;
+  color: var(--signal);
 }
 
 @keyframes hero-reveal {
@@ -550,13 +542,14 @@ body[data-theme="dark"] .section.alt {
 }
 
 #profile .profile-grid > div:first-child p {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
-  line-height: 1.35;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.25rem, 1.85vw, 1.6rem);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   color: var(--ink);
-  font-variation-settings: "wdth" 100, "opsz" 32;
+  /* Justify so both edges are flush — every row is the same length. */
+  text-align: justify;
 }
 
 #profile .profile-grid > div:first-child p::first-letter {
@@ -1262,9 +1255,47 @@ html:not(.js-reveal) .section-title p {
    ============================================================ */
 
 .site-footer {
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--rule-strong);
-  font-size: 0.78rem;
-  text-align: center;
+  padding: 2.25rem 0 2.75rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule);
+  background: color-mix(in oklab, var(--surface) 60%, transparent);
+  color: var(--soft);
+  transition: transform 0.2s var(--ease-spring), color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  border-color: color-mix(in oklab, var(--accent) 50%, var(--rule-strong));
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  transform: translateY(-2px);
+}
+
+.footer-links svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-links a:hover {
+    transform: none;
+  }
 }
 
