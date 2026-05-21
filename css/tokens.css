@@ -44,7 +44,7 @@
      keep their uppercase + letter-spacing, which reads like the new UI's eyebrows.
      True monospace (brand logo, code) uses --font-code (JetBrains Mono). */
   --font-sans-stack: "Inter", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
-  --font-display:     var(--font-sans-stack);
+  --font-display:     "Bricolage Grotesque", var(--font-sans-stack);
   --font-body:        var(--font-sans-stack);
   --font-serif:       var(--font-sans-stack);
   --font-sans:        var(--font-body);

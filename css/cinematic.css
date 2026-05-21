@@ -542,13 +542,14 @@ body[data-theme="dark"] .section.alt {
 }
 
 #profile .profile-grid > div:first-child p {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
-  line-height: 1.35;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.25rem, 1.85vw, 1.6rem);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
   color: var(--ink);
-  font-variation-settings: "wdth" 100, "opsz" 32;
+  /* Justify so both edges are flush — every row is the same length. */
+  text-align: justify;
 }
 
 #profile .profile-grid > div:first-child p::first-letter {

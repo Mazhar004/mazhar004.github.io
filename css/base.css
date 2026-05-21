@@ -94,6 +94,10 @@ body[data-theme="dark"] .grain {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
+/* All headings use the display face (Bricolage Grotesque). More specific rules
+   that intentionally differ (e.g. .spotlight h3 in mono) still override this. */
+h1, h2, h3 { font-family: var(--font-display); }
+
 .container {
   width: var(--container);
   margin: 0 auto;
