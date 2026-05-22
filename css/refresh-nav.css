@@ -18,19 +18,46 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 200;
+  isolation: isolate;
   width: min(1180px, calc(100% - 28px));
   border-radius: 16px;
-  background: color-mix(in oklab, var(--paper) 72%, transparent);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid var(--rule);
-  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg,
+      color-mix(in oklab, var(--paper) 58%, transparent) 0%,
+      color-mix(in oklab, var(--paper) 42%, transparent) 100%);
+  -webkit-backdrop-filter: blur(26px) saturate(165%);
+  backdrop-filter: blur(26px) saturate(165%);
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, var(--rule));
+  box-shadow:
+    0 18px 44px color-mix(in oklab, var(--bg) 68%, transparent),
+    inset 0 1px 0 color-mix(in oklab, var(--paper) 72%, transparent),
+    inset 0 -1px 0 color-mix(in oklab, var(--ink) 9%, transparent);
   transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
     box-shadow 0.3s var(--ease-out);
 }
 
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg,
+      color-mix(in oklab, var(--paper) 30%, transparent) 0%,
+      transparent 42%,
+      color-mix(in oklab, var(--ink) 6%, transparent) 100%),
+    linear-gradient(110deg,
+      transparent 18%,
+      color-mix(in oklab, var(--paper) 24%, transparent) 50%,
+      transparent 78%);
+  opacity: 0.95;
+}
+
 /* Inner row must fill the pill, not the page container width. */
 .site-header .container.nav {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: none;
   margin: 0;
@@ -66,19 +93,53 @@
   padding: 8px 12px;
   border-radius: 8px;
   color: var(--muted);
+  border: 1px solid transparent;
+  background: color-mix(in oklab, var(--paper) 6%, transparent);
   text-transform: none;
   letter-spacing: 0;
-  transition: color 0.18s var(--ease-out), background 0.18s var(--ease-out);
+  transition: color 0.18s var(--ease-out), background 0.18s var(--ease-out),
+    border-color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out);
 }
 
 .site-header .nav-links a:hover {
   color: var(--ink);
-  background: color-mix(in oklab, var(--ink) 8%, transparent);
+  border-color: color-mix(in oklab, var(--paper) 20%, transparent);
+  background: color-mix(in oklab, var(--paper) 14%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--paper) 30%, transparent);
 }
 
 .site-header .nav-links a.active {
   color: var(--ink);
-  background: color-mix(in oklab, var(--ink) 11%, transparent);
+  border-color: color-mix(in oklab, #fff 65%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--paper) 82%, transparent) 0%,
+      color-mix(in oklab, var(--paper) 62%, transparent) 100%
+    );
+  -webkit-backdrop-filter: blur(8px) saturate(145%);
+  backdrop-filter: blur(8px) saturate(145%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, #fff 75%, transparent),
+    0 8px 20px color-mix(in oklab, var(--ink) 14%, transparent),
+    0 2px 6px color-mix(in oklab, var(--ink) 10%, transparent);
+}
+
+/* Dark theme: --paper is a deep tone, so a paper fill would sink into the
+   bar. Use a white-based frost so the chip stays the brightest glass on
+   the pill, with a deeper drop shadow for lift. */
+body[data-theme="dark"] .site-header .nav-links a.active {
+  border-color: color-mix(in oklab, #fff 24%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, #fff 18%, transparent) 0%,
+      color-mix(in oklab, #fff 8%, transparent) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, #fff 40%, transparent),
+    0 10px 24px color-mix(in oklab, #000 42%, transparent),
+    0 2px 6px color-mix(in oklab, #000 30%, transparent);
 }
 
 /* Kill the cinematic underline pseudo-elements inside the pill. */
@@ -91,6 +152,15 @@
 .site-header .theme-toggle {
   width: 38px;
   height: 38px;
+  border: 1px solid color-mix(in oklab, var(--paper) 18%, transparent);
+  background: color-mix(in oklab, var(--paper) 10%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--paper) 28%, transparent);
+}
+
+.site-header .theme-toggle:hover,
+.site-header .nav-toggle:hover {
+  border-color: color-mix(in oklab, var(--paper) 28%, transparent);
+  background: color-mix(in oklab, var(--paper) 16%, transparent);
 }
 
 /* ============================================================
@@ -143,12 +213,17 @@ html {
     flex-direction: column;
     gap: 0.15rem;
     padding: 8px;
-    border: 1px solid var(--rule);
+    border: 1px solid color-mix(in oklab, var(--ink) 12%, var(--rule));
     border-radius: 16px;
-    background: color-mix(in oklab, var(--paper) 72%, transparent);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    backdrop-filter: blur(20px) saturate(140%);
-    box-shadow: var(--shadow-1);
+    background:
+      linear-gradient(180deg,
+        color-mix(in oklab, var(--paper) 58%, transparent) 0%,
+        color-mix(in oklab, var(--paper) 42%, transparent) 100%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    box-shadow:
+      0 18px 36px color-mix(in oklab, var(--bg) 60%, transparent),
+      inset 0 1px 0 color-mix(in oklab, var(--paper) 70%, transparent);
   }
 
   .site-header .nav-links.is-open {
